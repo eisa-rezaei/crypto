@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
-import { COIN_INFO } from "../../../../data/data";
+import { COIN_INFO } from "../../data/data";
 
 import {
   StHomeCoinInfo,
@@ -13,13 +13,13 @@ import {
   StHomeCoinInfoTitle,
 } from "./style";
 
-const CoinInfo = ({ image, name, id, symbol }) => {
+const CoinInfo = ({ image, name, id, symbol, info }) => {
   return (
     <StHomeCoinInfo>
       <StHomeCoinInfoTitle>
         <img src={image?.large} alt={name} />
         <span>
-          <Link to={`/coins/${id}`}>{name}</Link>
+          {info ? <h5>{name}</h5> : <Link to={`/coins/${id}`}>{name}</Link>}
           <p>({symbol})</p>
         </span>
         <FaStar />

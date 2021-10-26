@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import CoinGecko from "coingecko-api";
 import { useParams } from "react-router";
 import Loading from "../Loading";
-import CoinInfo from "../Home/components/CoinInfo";
-import InfoChart from "../Home/components/Chart";
+import ChartsPage from "./components/ChartsPage";
+import NewsPage from "./components/NewsPage";
+import AllCharts from "../AllCharts";
 import {
   StCoinContainer,
   StPageCoinDetail,
@@ -13,8 +14,7 @@ import {
   StCoinInfoDetailNewsCharts,
   StCoinInfoDetailNav,
 } from "./style";
-import ChartsPage from "./components/ChartsPage";
-import NewsPage from "./components/NewsPage";
+import CoinInfo from "../CoinInfo";
 
 const Coin = () => {
   const { id } = useParams();
@@ -45,6 +45,7 @@ const Coin = () => {
             image={coin.image}
             symbol={coin.symbol}
             id={coin.id}
+            info
           />
           <StPageCoinDetail>
             <StCoinDetailPrice
@@ -112,7 +113,13 @@ const Coin = () => {
                 </h5>
               </StCoinDetailPricePart>
               <StCoinDetailPricePart>
-                <InfoChart id={id} />
+                <AllCharts
+                  id={id}
+                  isPriceUp={
+                    market_data?.market_cap_change_percentage_24h_in_currency
+                      ?.usd > 0
+                  }
+                />
               </StCoinDetailPricePart>
             </StCoinDetailPrice>
           </StPageCoinDetail>
@@ -126,7 +133,11 @@ const Coin = () => {
               News
             </button>
           </StCoinInfoDetailNav>
-          {newsPage ? <NewsPage /> : <ChartsPage />}
+          {newsPage ? (
+            <NewsPage />
+          ) : (
+            <ChartsPage name={coin.name} id={coin.id} />
+          )}
         </StCoinInfoDetailNewsCharts>
       </StCoinContainer>
     );

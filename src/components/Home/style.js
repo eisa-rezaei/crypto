@@ -62,7 +62,8 @@ export const StHomeCoinDetailPrice = styled.div`
     display: flex;
     & p {
       font-size: 0.8rem;
-      color: ${(props) => (props.isPriceUp ? `lightgreen` : `red`)};
+      color: ${(props) =>
+        props.isPriceUp ? `lightgreen` : `rgba(242, 38, 19, 1)`};
     }
   }
 `;

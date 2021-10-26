@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import CoinGecko from "coingecko-api";
 import CoinInfo from "./components/CoinInfo";
+import AllCharts from "../AllCharts";
 
 import Loading from "../Loading";
 
@@ -13,23 +14,22 @@ import {
   StHomeCoinListItem,
   StHomeContainer,
 } from "./style";
-import InfoChart from "./components/Chart";
 
+const CoinGeckoClient = new CoinGecko();
 const Home = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const CoinGeckoClient = new CoinGecko();
-    const getData = async () => {
-      setLoading(true);
-      const res = await CoinGeckoClient.coins.all();
-      setCoins(res?.data);
-      res?.data && setLoading(false);
-    };
-    getData();
+  const getData = useCallback(async () => {
+    setLoading(true);
+    const res = await CoinGeckoClient.coins.all();
+    setCoins(res?.data);
+    res?.data && setLoading(false);
   }, []);
-  console.log(coins);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
 
   if (loading) {
     return <Loading />;
@@ -102,7 +102,7 @@ const Home = () => {
                       </h5>
                     </StHomeCoinDetailPricePart>
                     <StHomeCoinDetailPricePart>
-                      <InfoChart id={id} />
+                      <AllCharts id={id} isPriceUp={usdChange24h > 0} />
                     </StHomeCoinDetailPricePart>
                   </StHomeCoinDetailPrice>
                 </StHomeCoinDetail>

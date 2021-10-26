@@ -53,4 +53,7 @@ li {
 ul {
     padding: 0;
 }
+section {
+    padding: 0;
+}
 `;
