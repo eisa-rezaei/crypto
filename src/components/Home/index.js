@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import CoinGecko from "coingecko-api";
-import CoinInfo from "./components/CoinInfo";
+
+import CoinInfo from "../CoinInfo";
 import AllCharts from "../AllCharts";
 
 import Loading from "../Loading";
