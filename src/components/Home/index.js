@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import CoinGecko from "coingecko-api";
 import CoinInfo from "./components/CoinInfo";
-import InfoChart from "../Chart";
+
 import Loading from "../Loading";
 
 import {
@@ -13,6 +13,7 @@ import {
   StHomeCoinListItem,
   StHomeContainer,
 } from "./style";
+import InfoChart from "./components/Chart";
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
