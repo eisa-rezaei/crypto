@@ -4,9 +4,10 @@ export const StLayoutContainer = styled.main`
   width: 100%;
   min-height: 100vh;
   padding: 50px 100px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: #181a1d;
 `;
@@ -23,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
 	line-height: 1;
-    background-color: seagreen;
+    background-color: #1e2429;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 section {

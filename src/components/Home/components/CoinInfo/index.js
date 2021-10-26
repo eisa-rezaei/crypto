@@ -1,8 +1,11 @@
 import React from "react";
+
 import { BsArrowRight } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
+
 import { Link } from "react-router-dom";
 import { COIN_INFO } from "../../../../data/data";
+
 import {
   StHomeCoinInfo,
   StHomeCoinInfoLink,

@@ -33,9 +33,13 @@ const InfoChart = ({ id }) => {
 
   const { ChartValues, ChartLabels } = ChartHelper(data);
 
-  console.log(ChartValues.ChartLabels);
-
   const options = {
+    // responsive: true,
+    elements: {
+      point: {
+        radius: 1,
+      },
+    },
     plugins: {
       legend: {
         display: false,
@@ -62,7 +66,7 @@ const InfoChart = ({ id }) => {
         borderColor: "rgba(255, 99, 132, 1)",
         pointBorderColor: "rgba(255, 99, 132, 1)",
         pointBorderWidth: 0,
-        borderWidth: 7,
+        borderWidth: 4,
       },
     ],
   };
@@ -70,7 +74,7 @@ const InfoChart = ({ id }) => {
   if (loading) {
     return <Loading />;
   } else {
-    return <Line options={options} data={Chartdata} />;
+    return <Line options={options} data={Chartdata} height="100px" />;
   }
 };
 
