@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../Loading";
 import { StChartBoxContainer, StChartBoxContainerPrice } from "./style";
 
 const CoinGeckoClient = new CoinGecko();
-const AllCharts = ({ id, isPriceUp, limit }) => {
+const AllCharts = ({ id, limit }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(() => {

@@ -109,7 +109,7 @@ const Home = () => {
                         </h5>
                       </StHomeCoinDetailPricePart>
                       <StHomeCoinDetailPricePart>
-                        <AllCharts id={id} isPriceUp={usdChange24h > 0} />
+                        <AllCharts id={id} />
                       </StHomeCoinDetailPricePart>
                     </StHomeCoinDetailPrice>
                   </StHomeCoinDetail>
