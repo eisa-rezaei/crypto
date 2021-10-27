@@ -38,9 +38,6 @@ const Coin = () => {
     getData();
   }, [getData, id]);
 
-  console.log(coin);
-  console.log();
-
   if (loading) {
     return <Loading styled />;
   } else {

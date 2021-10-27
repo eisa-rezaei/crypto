@@ -30,7 +30,6 @@ const Home = () => {
       console.log(error);
     }
   }, [dispatch]);
-  console.log(state);
   useEffect(() => {
     getData();
   }, [getData]);
