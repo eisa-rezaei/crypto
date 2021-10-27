@@ -8,7 +8,7 @@ export const StLayoutContainer = styled.main`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #181a1d;
 `;
 

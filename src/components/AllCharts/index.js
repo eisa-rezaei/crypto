@@ -2,23 +2,20 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../Loading";
+import { StChartBoxContainer, StChartBoxContainerPrice } from "./style";
 
 const CoinGeckoClient = new CoinGecko();
-const AllCharts = ({ id, isPriceUp, limit, marketChart }) => {
-  const [data, setData] = useState([]);
+const AllCharts = ({ id, isPriceUp, limit }) => {
+  const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
-
   const getData = useCallback(async () => {
-    const days = limit ? +limit : 7;
+    setLoading(true);
+    const days = limit || 7;
     try {
-      setLoading(true);
-      const res = await CoinGeckoClient?.coins?.fetchMarketChart(
-        id?.toString(),
-        {
-          days,
-          vs_currency: "usd",
-        }
-      );
+      const res = await CoinGeckoClient.coins.fetchMarketChart(id?.toString(), {
+        days,
+        vs_currency: "usd",
+      });
       setData(res.data);
       setLoading(false);
     } catch (error) {
@@ -30,31 +27,22 @@ const AllCharts = ({ id, isPriceUp, limit, marketChart }) => {
     getData();
   }, [getData]);
 
-  const ChartHelper = useCallback((data) => {
+  const ChartHelper = (data) => {
     let ChartValues = [];
     let ChartLabels = [];
-    for (let i = 0; i < data?.length; i++) {
-      ChartLabels.push(new Date(data[i][0]).getDate());
+    const len = data?.length;
+    for (let i = 0; i < len; i++) {
+      const time = new Date(data[i][0]).getDate();
+      ChartLabels.push(time);
       ChartValues.push(data[i][1]);
     }
     return { ChartValues, ChartLabels };
-  }, []);
+  };
 
   const { ChartValues: prices, ChartLabels } = ChartHelper(data?.prices);
-  const { ChartValues: market_cap } = ChartHelper(data?.market_caps);
 
   const options = {
     // responsive: true,
-    elements: {
-      point: {
-        radius: 1,
-      },
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
     scales: {
       x: {
         display: false,
@@ -63,42 +51,89 @@ const AllCharts = ({ id, isPriceUp, limit, marketChart }) => {
         display: false,
       },
     },
+    elements: {
+      point: {
+        radius: 0,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
   };
+
+  // const Chartdata = (canvas) => {
+  //   const ctx = canvas.getContext("2d");
+  //   const gradient = ctx.createLinearGradient(0, 0, 0, 100);
+  //   gradient.addColorStop(
+  //     0,
+  //     isPriceUp ? "rgba(40, 194, 129, 0.7)" : "rgba(138, 30, 33, 0.7)"
+  //   );
+  //   gradient.addColorStop(
+  //     0.7,
+  //     isPriceUp ? "rgba(40, 194, 129, 0.2)" : "rgba(138, 30, 33, 0.2)"
+  //   );
+  //   gradient.addColorStop(
+  //     1,
+  //     isPriceUp ? "rgba(40, 194, 129, 0)" : "rgba(138, 30, 33, 0)"
+  //   );
+  //   return {
+  //     labels: ChartLabels,
+  //     datasets: [
+  //       {
+  //         fill: true,
+  //         backgroundColor: gradient,
+  //         data: prices,
+  //         borderColor: isPriceUp
+  //           ? "rgba(40, 194, 129, 1)"
+  //           : "rgba(210, 77, 87, 1)",
+  //         pointBorderWidth: 0,
+  //         borderWidth: 3,
+  //         tension: 0.1,
+  //         yAxisID: "y",
+  //         xAxisID: "x",
+  //       },
+  //     ],
+  //   };
+  // };
+
+  const percent =
+    ((prices[prices.length - 1] - prices[0]) / prices[prices.length - 1]) * 100;
+
   const Chartdata = {
     labels: ChartLabels,
     datasets: [
       {
-        // label: `${id}`,
+        fill: true,
+        backgroundColor:
+          percent > 0 ? "rgba(40, 194, 129, 0.2)" : "rgba(138, 30, 33, 0.2)",
         data: prices,
-        borderColor: isPriceUp
-          ? "rgba(38, 194, 129, 1)"
-          : "rgba(210, 77, 87, 1)",
+        borderColor:
+          percent > 0 ? "rgba(40, 194, 129, 1)" : "rgba(210, 77, 87, 1)",
         pointBorderWidth: 0,
         borderWidth: 3,
-        xAxisID: marketChart && "x",
-        yAxisID: marketChart && "y",
         tension: 0.1,
+        yAxisID: "y",
+        xAxisID: "x",
       },
     ],
   };
 
-  const market_cap_data = {
-    // label: `${id}`,
-    data: market_cap,
-    borderColor: isPriceUp ? "rgba(210, 77, 87, 1)" : "rgba(38, 194, 129, 1)",
-    pointBorderWidth: 0,
-    borderWidth: 3,
-    yAxisID: "y1",
-    xAxisID: "x1",
-    tension: 0.1,
-  };
-  if (marketChart) {
-    Chartdata.datasets.push(market_cap_data);
-  }
   if (loading) {
     return <Loading />;
   } else {
-    return <Line options={options} data={Chartdata} height="100px" />;
+    return (
+      <StChartBoxContainer>
+        <StChartBoxContainerPrice isPos={percent > 0}>
+          last {limit || 7} days
+          <p>{percent.toFixed(2)}%</p>
+        </StChartBoxContainerPrice>
+        <span>
+          <Line options={options} data={Chartdata} height="100px" />
+        </span>
+      </StChartBoxContainer>
+    );
   }
 };
 

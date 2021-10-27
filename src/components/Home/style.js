@@ -27,9 +27,9 @@ export const StHomeCoinListItem = styled.li`
   justify-content: flex-start;
   border-radius: 20px;
   background-color: #1e2429;
-  transition: all 0.3s;
+  transition: all 0.6s ease-in;
   :hover {
-    box-shadow: 0 15px 30px rgba(200, 200, 200, 0.2);
+    box-shadow: 0px 15px 30px rgba(0 0 0 / 44%);
   }
 `;
 

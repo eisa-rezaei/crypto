@@ -74,7 +74,7 @@ export const StCoinDetailPricePart = styled.div`
 
 export const StCoinInfoDetailNewsCharts = styled.article`
   width: 100%;
-  min-height: 50vh;
+  min-height: 40vh;
   padding: 20px 40px;
   display: flex;
   flex-direction: column;

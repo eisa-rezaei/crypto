@@ -11,7 +11,9 @@ const NavBar = () => {
     <StNavBarContainer>
       {locationArr.map((item, index) => (
         <div key={index}>
-          <Link to={item !== locationArr[0] ? `/${item}` : "/"}>{item}</Link>
+          <Link to={item !== locationArr[0] ? `/coins/${item}` : "/"}>
+            {item}
+          </Link>
           {index !== locationArr.length - 1 && <span>&nbsp; &gt; &nbsp;</span>}
         </div>
       ))}

@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CoinGecko from "coingecko-api";
 
 import CoinInfo from "../CoinInfo";
@@ -15,30 +15,32 @@ import {
   StHomeCoinListItem,
   StHomeContainer,
 } from "./style";
+import selectors from "../../redux/coins/selectors";
+import { fetchCoins } from "../../redux/coins/actions";
 
 const CoinGeckoClient = new CoinGecko();
 const Home = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+  const state = useSelector(selectors.getCoins);
+  const dispatch = useDispatch();
   const getData = useCallback(async () => {
-    setLoading(true);
-    const res = await CoinGeckoClient.coins.all();
-    setCoins(res?.data);
-    res?.data && setLoading(false);
-  }, []);
-
+    try {
+      const res = await CoinGeckoClient.coins.all();
+      dispatch(fetchCoins(res?.data));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch]);
+  console.log(state);
   useEffect(() => {
     getData();
   }, [getData]);
-
-  if (loading) {
+  if (!state[0]) {
     return <Loading />;
   } else {
     return (
       <StHomeContainer>
         <StHomeCoinListContainer>
-          {coins.slice(0, 5).map(({ name, id, image, symbol, market_data }) => {
+          {state.slice(0, 5).map(({ name, id, image, symbol, market_data }) => {
             const {
               current_price,
               market_cap_change_percentage_24h_in_currency: usdChange24h,

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StCoinDetailChartsContainer = styled.section`
   width: 100%;
-  min-height: 50vh;
+  min-height: 20vh;
   padding: 20px 0;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,9 @@ export const StCoinDetailChartsHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  & h3 {
+    font-size: 1.3rem;
+  }
 `;
 export const StCoinDetailChartsHeaderInputs = styled.header`
   display: flex;
@@ -30,7 +33,7 @@ export const StCoinDetailChartsHeaderInputs = styled.header`
 `;
 
 export const StCoinDetailChartsHeaderBtns = styled.div`
-  & :nth-child(1) {
+  & :nth-child(${(props) => props.days}) {
     color: #fff;
     background-color: #2a67c2;
   }
@@ -39,5 +42,63 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
     cursor: pointer;
     padding: 8px 20px;
     border-radius: 10px;
+  }
+`;
+
+export const StCoinDetailChartsDescription = styled.div`
+  width: 100%;
+  min-height: 30vh;
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+
+export const StCoinDetailChartsDescriptionDetail = styled.div`
+  width: 65%;
+  height: auto;
+  word-break: break-all;
+  & h3 {
+    font-size: 1.3rem;
+  }
+  & p {
+    margin: 30px 0;
+    color: #aaa;
+    font-size: 0.7rem;
+  }
+`;
+
+export const StCoinDetailChartsDescriptionPrices = styled.ul`
+  width: 30%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  & h3 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+  }
+`;
+
+export const StCoinDetailChartsDescriptionPricesItem = styled.li`
+  margin-bottom: 20px;
+  & span:nth-child(odd) {
+    background-color: #e0e0e008;
+    border-radius: 10px;
+  }
+  & span {
+    margin: 10px 0px;
+    padding: 0 20px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & p {
+      margin: 30px 0;
+      color: #aaa;
+    }
+    & h5 {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
