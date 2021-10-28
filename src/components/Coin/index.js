@@ -153,6 +153,9 @@ const Coin = () => {
               change={market_data?.price_change_24h}
               cir_supply={market_data?.circulating_supply}
               total_supply={market_data?.total_supply}
+              percentage={market_data?.market_cap_change_percentage_24h_in_currency?.usd.toFixed(
+                2
+              )}
             />
           )}
         </StCoinInfoDetailNewsCharts>

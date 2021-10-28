@@ -25,10 +25,10 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   & input {
     width: 200px;
     min-height: 45px;
-    color: #fff;
     font-size: 0.9rem;
     text-align: left;
     margin: 0 10px;
+    color: #fff;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: #283035;
@@ -44,8 +44,8 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
     overflow: hidden;
 
     & * {
-      background-color: #283035;
       color: #fff;
+      background-color: #283035;
       :hover {
         color: #283035;
       }
@@ -96,6 +96,9 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
       cursor: not-allowed;
     }
   }
+  .Calendar__yearSelectorWrapper::before {
+    height: 10px;
+  }
 `;
 
 export const StCoinDetailChartsHeaderBtns = styled.div`
@@ -108,6 +111,10 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
     cursor: pointer;
     padding: 8px 20px;
     border-radius: 10px;
+    transition: all 0.5s;
+    :hover {
+      color: #fff;
+    }
   }
 `;
 
@@ -165,6 +172,9 @@ export const StCoinDetailChartsDescriptionPricesItem = styled.li`
     & h5 {
       display: flex;
       flex-direction: column;
+    }
+    .change-price {
+      color: ${(props) => (props.change ? `#0f0` : `#f00`)};
     }
   }
 `;

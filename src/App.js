@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading styled />}>
       <Router>
         <Layout>
           <NavBar />

@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const StFooterContainer = styled.footer`
   width: 100%;
+  min-height: 50px;
   position: absolute;
   bottom: 0;
-  color: #fff;
   display: flex;
-  min-height: 50px;
   align-items: center;
-  letter-spacing: 2px;
   justify-content: center;
+  color: #aaa;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
 `;

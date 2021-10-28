@@ -27,6 +27,7 @@ const ChartsPage = React.memo(
     change,
     cir_supply,
     total_supply,
+    percentage,
   }) => {
     const newDescription = description?.slice(0, 600);
     const DESCRIPTION = [
@@ -177,28 +178,28 @@ const ChartsPage = React.memo(
               </span>
             </StCoinDetailChartsDescriptionPricesItem>
             <h3>Yesterday's {name} Price </h3>
-            <StCoinDetailChartsDescriptionPricesItem>
+            <StCoinDetailChartsDescriptionPricesItem change={change > 0}>
               <span>
                 <p>YesterDay Price</p>
                 <h5>{yesterDayPrice.toFixed(0)} USD</h5>
               </span>
               <span>
-                <p>{name} Price Today</p>
-                <h5>{price} USD</h5>
+                <p>{name} Changes 24H</p>
+                <h5 className="change-price">${change} USD</h5>
               </span>
               <span>
-                <p>{name} Price Today</p>
-                <h5>{price} USD</h5>
+                <p>{name} Percentage 24 H</p>
+                <h5 className="change-price">{percentage} %</h5>
               </span>
             </StCoinDetailChartsDescriptionPricesItem>
             <h3>History {name} Price </h3>
             <StCoinDetailChartsDescriptionPricesItem>
               <span>
-                <p>{name} Price Today</p>
+                <p>{name}</p>
                 <h5>{price} USD</h5>
               </span>
               <span>
-                <p>{name} Price Today</p>
+                <p>{name}</p>
                 <h5>{price} USD</h5>
               </span>
             </StCoinDetailChartsDescriptionPricesItem>

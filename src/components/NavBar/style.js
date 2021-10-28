@@ -9,7 +9,7 @@ export const StNavBarContainer = styled.nav`
   flex-direction: row-reverse;
   justify-content: space-between;
   & h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 5px;
   }
 `;

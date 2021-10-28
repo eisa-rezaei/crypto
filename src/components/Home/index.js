@@ -34,7 +34,7 @@ const Home = () => {
     getData();
   }, [getData]);
   if (!state[0]) {
-    return <Loading />;
+    return <Loading styled />;
   } else {
     return (
       <StHomeContainer>
