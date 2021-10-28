@@ -5,9 +5,10 @@ import Loading from "../Loading";
 import { StChartBoxContainer, StChartBoxContainerPrice } from "./style";
 
 const CoinGeckoClient = new CoinGecko();
-const AllCharts = ({ id, limit }) => {
+const InternalChart = ({ id, limit }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const getData = async () => {
       setLoading(true);
@@ -64,46 +65,6 @@ const AllCharts = ({ id, limit }) => {
       },
     },
   };
-
-  // const Chartdata = (canvas) => {
-  //   const ctx = canvas.getContext("2d");
-  //   const gradient = ctx.createLinearGradient(0, 0, 0, 100);
-
-  //   gradient.addColorStop(0, "rgba(138, 30, 33, 0.8)");
-  //   gradient.addColorStop(0.7, "rgba(138, 30, 33, 0.2)");
-  //   gradient.addColorStop(1, "rgba(138, 30, 33, 0)");
-  //   // gradient.addColorStop(
-  //   //   0,
-  //   //   isPriceUp ? "rgba(40, 194, 129, 0.7)" : "rgba(167, 46, 33, 0.7)"
-  //   // );
-  //   // gradient.addColorStop(
-  //   //   0.7,
-  //   //   isPriceUp ? "rgba(40, 194, 129, 0.2)" : "rgba(167, 46, 33, 0.2)"
-  //   // );
-  //   // gradient.addColorStop(
-  //   //   1,
-  //   //   isPriceUp ? "rgba(40, 194, 129, 0)" : "rgba(167, 46, 33, 0)"
-  //   // );
-  //   return {
-  //     labels: ChartLabels,
-  //     datasets: [
-  //       {
-  //         fill: true,
-  //         backgroundColor: gradient,
-  //         data: prices,
-  //         borderColor: isPriceUp
-  //           ? "rgba(40, 194, 129, 1)"
-  //           : "rgba(210, 77, 87, 1)",
-  //         pointBorderWidth: 0,
-  //         borderWidth: 3,
-  //         tension: 0.1,
-  //         yAxisID: "y",
-  //         xAxisID: "x",
-  //       },
-  //     ],
-  //   };
-  // };
-
   const percent =
     ((prices[prices.length - 1] - prices[0]) / prices[prices.length - 1]) * 100;
 
@@ -143,4 +104,4 @@ const AllCharts = ({ id, limit }) => {
   }
 };
 
-export default AllCharts;
+export default InternalChart;

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import CoinGecko from "coingecko-api";
 
 import CoinInfo from "../CoinInfo";
-import AllCharts from "../AllCharts";
 
 import Loading from "../Loading";
 
@@ -17,6 +16,7 @@ import {
 } from "./style";
 import selectors from "../../redux/coins/selectors";
 import { fetchCoins } from "../../redux/coins/actions";
+import InternalChart from "../InternalChart";
 
 const CoinGeckoClient = new CoinGecko();
 const Home = () => {
@@ -108,7 +108,7 @@ const Home = () => {
                         </h5>
                       </StHomeCoinDetailPricePart>
                       <StHomeCoinDetailPricePart>
-                        <AllCharts id={id} />
+                        <InternalChart id={id} />
                       </StHomeCoinDetailPricePart>
                     </StHomeCoinDetailPrice>
                   </StHomeCoinDetail>

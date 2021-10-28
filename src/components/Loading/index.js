@@ -4,7 +4,7 @@ import { StLoadingContainer, StLoadingLogoConatainer } from "./styles";
 
 const Loading = ({ styled }) => {
   return (
-    <StLoadingContainer>
+    <StLoadingContainer styled={styled}>
       <StLoadingLogoConatainer styled={styled}>
         <GoGear />
         <GoGear />

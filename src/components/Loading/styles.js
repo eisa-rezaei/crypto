@@ -19,7 +19,7 @@ const rotateRevers = keyframes`
 
 export const StLoadingContainer = styled.main`
   width: 100%;
-  min-height: 45vh;
+  min-height: ${(props) => (props.styled ? `80vh` : `45vh`)};
   display: flex;
   align-items: center;
   justify-content: center;

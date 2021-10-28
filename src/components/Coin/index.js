@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import Loading from "../Loading";
 import ChartsPage from "./components/ChartsPage";
 import NewsPage from "./components/NewsPage";
-import AllCharts from "../AllCharts";
 import {
   StCoinContainer,
   StPageCoinDetail,
@@ -15,6 +14,7 @@ import {
   StCoinInfoDetailNav,
 } from "./style";
 import CoinInfo from "../CoinInfo";
+import InternalChart from "../InternalChart";
 
 const CoinGeckoClient = new CoinGecko();
 const Coin = () => {
@@ -118,7 +118,7 @@ const Coin = () => {
                 </h5>
               </StCoinDetailPricePart>
               <StCoinDetailPricePart>
-                <AllCharts
+                <InternalChart
                   id={id}
                   isPriceUp={
                     market_data?.market_cap_change_percentage_24h_in_currency

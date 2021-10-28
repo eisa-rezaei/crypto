@@ -5,6 +5,7 @@ export const StLayoutContainer = styled.main`
   min-height: 100vh;
   padding: 50px 100px;
   overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
