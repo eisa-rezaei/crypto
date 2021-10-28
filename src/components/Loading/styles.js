@@ -19,11 +19,11 @@ const rotateRevers = keyframes`
 
 export const StLoadingContainer = styled.main`
   width: 100%;
-  height: 100vh;
+  min-height: ${(props) => (props.styled ? `80vh` : `45vh`)};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20vh 0;
+  padding: 10vh 0;
   & p {
     font-size: 3rem;
   }
