@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CoinChart from "../../CoinChart";
+import DatePicker, { utils } from "react-modern-calendar-datepicker";
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
 
 import {
   StCoinDetailChartsContainer,
@@ -67,6 +69,8 @@ const ChartsPage = React.memo(
     ];
 
     const [days, setDays] = useState(30);
+    const [selectedStartDay, setSelectedStartDay] = useState(null);
+    const [selectedEndDay, setSelectedEndDay] = useState(null);
 
     const timeBg = {
       1: 1,
@@ -76,37 +80,74 @@ const ChartsPage = React.memo(
       720: 5,
     };
 
+    const minimumDate = {
+      year: 2018,
+      month: 1,
+      day: 1,
+    };
+
     const yesterDayPrice = +price?.replace(/\D/g, "") - change;
+
+    const oneDayAfter = { ...selectedStartDay, day: selectedStartDay?.day + 1 };
+
+    const daysHandler = (day) => () => {
+      setDays(day);
+      setSelectedStartDay(null);
+      setSelectedEndDay(null);
+    };
 
     return (
       <StCoinDetailChartsContainer>
         <StCoinDetailChartsHeader>
           <h3>{name} Charts</h3>
           <StCoinDetailChartsHeaderBtns days={timeBg[days]}>
-            <button type="button" id="day" onClick={() => setDays(1)}>
+            <button type="button" id="day" onClick={daysHandler(1)}>
               Day
             </button>
-            <button type="button" id="week" onClick={() => setDays(7)}>
+            <button type="button" id="week" onClick={daysHandler(7)}>
               Week
             </button>
-            <button type="button" id="month" onClick={() => setDays(30)}>
+            <button type="button" id="month" onClick={daysHandler(30)}>
               Month
             </button>
-            <button type="button" id="year" onClick={() => setDays(360)}>
+            <button type="button" id="year" onClick={daysHandler(360)}>
               Year
             </button>
-            <button type="button" id="all" onClick={() => setDays(720)}>
+            <button type="button" id="all" onClick={daysHandler(720)}>
               All
             </button>
           </StCoinDetailChartsHeaderBtns>
           <StCoinDetailChartsHeaderInputs>
             <label htmlFor="start">From</label>
-            <input placeholder="Start Date" name="start" id="start" disabled />
+            <DatePicker
+              value={selectedStartDay}
+              maximumDate={utils().getToday()}
+              onChange={setSelectedStartDay}
+              minimumDate={minimumDate}
+              inputPlaceholder="Select a day"
+              calendarClassName="abcd"
+            />
             <label htmlFor="end">To</label>
-            <input placeholder="End Date" name="end" id="end" disabled />
+            <DatePicker
+              value={selectedEndDay}
+              maximumDate={utils().getToday()}
+              minimumDate={oneDayAfter}
+              inputPlaceholder="Select a day"
+              onChange={selectedStartDay && setSelectedEndDay}
+              calendarClassName="abcd"
+            />
           </StCoinDetailChartsHeaderInputs>
         </StCoinDetailChartsHeader>
-        <CoinChart id={id?.toString()} limit={days} />
+        <CoinChart
+          id={id?.toString()}
+          limit={days}
+          selectedStartDay={new Date(
+            `${selectedStartDay?.year}.${selectedStartDay?.month}.${selectedStartDay?.day}`
+          ).getTime()}
+          selectedEndDay={new Date(
+            `${selectedEndDay?.year}.${selectedEndDay?.month}.${selectedEndDay?.day}`
+          ).getTime()}
+        />
         <StCoinDetailChartsDescription>
           <StCoinDetailChartsDescriptionDetail>
             {DESCRIPTION.map((item, index) => (
@@ -165,15 +206,15 @@ const ChartsPage = React.memo(
             <StCoinDetailChartsDescriptionPricesItem>
               <span>
                 <p> circulating Supply</p>
-                <h5>{cir_supply}</h5>
+                <h5>{cir_supply} USD</h5>
               </span>
               <span>
                 <p>total Supply</p>
-                <h5>{total_supply}</h5>
+                <h5>{total_supply} USD</h5>
               </span>
               <span>
                 <p>Max Supply</p>
-                <h5>{maxSupply}</h5>
+                <h5>{maxSupply} USD</h5>
               </span>
             </StCoinDetailChartsDescriptionPricesItem>
           </StCoinDetailChartsDescriptionPrices>

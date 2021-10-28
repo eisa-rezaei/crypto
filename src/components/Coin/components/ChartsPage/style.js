@@ -19,16 +19,39 @@ export const StCoinDetailChartsHeader = styled.header`
     font-size: 1.3rem;
   }
 `;
-export const StCoinDetailChartsHeaderInputs = styled.header`
+export const StCoinDetailChartsHeaderInputs = styled.div`
   display: flex;
   align-items: center;
   & input {
     width: 200px;
+    min-height: 45px;
     color: #fff;
+    font-size: 0.9rem;
+    text-align: left;
     margin: 0 10px;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: #283035;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .abcd {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-radius: 20px;
+    overflow: hidden;
+
+    & * {
+      background-color: #283035;
+      color: #fff;
+      box-shadow: 0 0 0;
+      background: #283035;
+      :hover {
+        color: black;
+      }
+    }
   }
 `;
 
