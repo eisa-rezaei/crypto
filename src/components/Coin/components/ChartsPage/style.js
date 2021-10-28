@@ -46,11 +46,54 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
     & * {
       background-color: #283035;
       color: #fff;
-      box-shadow: 0 0 0;
-      background: #283035;
       :hover {
-        color: black;
+        color: #283035;
       }
+    }
+  }
+  .DatePicker__calendarContainer {
+    height: auto;
+  }
+  .Calender__header {
+    border-radius: 20px;
+  }
+  .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(.-selectedBetween) {
+    color: orange;
+  }
+  .Calendar__weekDays {
+    abbr {
+      :hover {
+        color: #fff;
+      }
+    }
+  }
+  .Calendar__yearSelectorWrapper::after {
+    background-image: linear-gradient(
+      to bottom,
+      #283035,
+      #283035 10%,
+      rgba(245, 245, 245, 0)
+    );
+  }
+  .Calendar__yearSelectorWrapper::before {
+    background-image: linear-gradient(
+      to top,
+      #283035,
+      #283035 10%,
+      rgba(245, 245, 245, 0)
+    );
+  }
+  .DatePicker__calendarArrow {
+    border-color: transparent transparent #283035 transparent;
+  }
+  .-disabled {
+    color: #000 !important;
+  }
+  .Calendar__yearSelector,
+  .Calendar__monthSelector {
+    button:disabled {
+      color: #000;
+      cursor: not-allowed;
     }
   }
 `;

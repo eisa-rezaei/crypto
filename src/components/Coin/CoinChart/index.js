@@ -44,7 +44,9 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
 
   const timeSelect = (time) => {
     const millisecond = new Date(time);
-    if (limit >= 7 && limit <= 30) {
+    if (selectedStartDay && selectedEndDay) {
+      return millisecond.getDate();
+    } else if (limit >= 7 && limit <= 30) {
       return millisecond.getDate();
     } else if (limit < 7) {
       return millisecond.getHours();
@@ -77,34 +79,6 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
       },
     },
   };
-  //   const chartData = {
-  //     labels: ChartLabels,
-  //     datasets: [
-  //       {
-  //         data: prices,
-  //         borderColor: "rgba(38, 194, 129, 1)",
-  //         pointBorderWidth: 0,
-  //         borderWidth: 3,
-  //         fill: true,
-  //         backgroundColor: "rgba(210, 77, 87, 0.1)",
-  //         xAxisID: "x",
-  //         yAxisID: "y",
-  //         tension: 0.1,
-  //       },
-  //       {
-  //         data: market_cap,
-  //         borderColor: "rgba(210, 77, 87, 1)",
-  //         pointBorderWidth: 0,
-  //         borderWidth: 3,
-  //         backgroundColor: "rgba(38, 194, 129, 0.1)",
-  //         fill: true,
-  //         yAxisID: "y1",
-  //         xAxisID: "x1",
-  //         tension: 0.1,
-  //       },
-  //     ],
-  //   };
-
   const Chartdata = () => {
     const { ChartValues: prices_cap, ChartLabels } = ChartHelper(data?.prices);
     const chartData = {
