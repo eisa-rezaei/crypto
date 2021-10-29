@@ -14,6 +14,9 @@ export const StNewsContainer = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 export const StSingleNews = styled.li`
   width: 270px;
@@ -22,10 +25,14 @@ export const StSingleNews = styled.li`
   overflow: hidden;
   font-size: 0.9rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: #1c2024;
+  @media (max-width: 700px) {
+    width: 100%;
+    margin: 20px 0;
+  }
 `;
 export const StSingleNewsInfo = styled.div`
   padding: 20px;
@@ -60,6 +67,6 @@ export const StSingleNewsInfoFooter = styled.footer`
 
 export const StSingleNewsImgContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 250px;
   background-color: ${(props) => props.color};
 `;

@@ -11,6 +11,9 @@ export const StLayoutContainer = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   background-color: #181a1d;
+  @media (max-width: 700px) {
+    padding: 10px;
+  }
 `;
 
 export const GlobalStyle = createGlobalStyle`
