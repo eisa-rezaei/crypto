@@ -34,7 +34,7 @@ export const StLoadingContainer = styled.main`
   }
 `;
 
-export const StLoadingLogoConatainer = styled.div`
+export const StLoadingLogoContainer = styled.div`
   width: 150px;
   margin: 60px auto;
   position: relative;

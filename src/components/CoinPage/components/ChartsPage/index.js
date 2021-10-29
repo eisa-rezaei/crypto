@@ -185,7 +185,13 @@ const ChartsPage = React.memo(
               </span>
               <span>
                 <p>{name} Changes 24H</p>
-                <h5 className="change-price">${change} USD</h5>
+                <h5 className="change-price">
+                  $
+                  {Math.abs(change) > 10
+                    ? change?.toFixed(2)
+                    : change?.toFixed(4)}
+                  USD
+                </h5>
               </span>
               <span>
                 <p>{name} Percentage 24 H</p>

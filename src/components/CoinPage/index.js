@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import Loading from "../Loading";
 import ChartsPage from "./components/ChartsPage";
 import NewsPage from "./components/NewsPage";
+import CoinInfo from "../CoinInfo";
+import InternalChart from "../InternalChart";
 import {
   StCoinContainer,
   StPageCoinDetail,
@@ -13,8 +15,6 @@ import {
   StCoinInfoDetailNewsCharts,
   StCoinInfoDetailNav,
 } from "./style";
-import CoinInfo from "../CoinInfo";
-import InternalChart from "../InternalChart";
 
 const CoinGeckoClient = new CoinGecko();
 const Coin = () => {
