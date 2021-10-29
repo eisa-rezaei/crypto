@@ -1,14 +1,14 @@
 import React from "react";
 import { GoGear } from "react-icons/go";
-import { StLoadingContainer, StLoadingLogoConatainer } from "./styles";
+import { StLoadingContainer, StLoadingLogoContainer } from "./styles";
 
 const Loading = ({ styled }) => {
   return (
     <StLoadingContainer styled={styled}>
-      <StLoadingLogoConatainer styled={styled}>
+      <StLoadingLogoContainer styled={styled}>
         <GoGear />
         <GoGear />
-      </StLoadingLogoConatainer>
+      </StLoadingLogoContainer>
     </StLoadingContainer>
   );
 };

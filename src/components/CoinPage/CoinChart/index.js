@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../../Loading";
+import { StCoinPageChartContainer } from "./style";
 
 const CoinGeckoClient = new CoinGecko();
 const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
@@ -67,7 +68,32 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
   };
 
   const chartOptions = {
-    // responsive: true,
+    scales: {
+      x: {
+        display: false,
+        ticks: {
+          display: false,
+        },
+      },
+      y: {
+        display: false,
+        ticks: {
+          display: false,
+        },
+      },
+      x1: {
+        display: true,
+        ticks: {
+          display: true,
+        },
+      },
+      y1: {
+        display: true,
+        ticks: {
+          display: true,
+        },
+      },
+    },
     elements: {
       point: {
         radius: 1,
@@ -76,11 +102,18 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
     plugins: {
       legend: {
         display: false,
+        labels: {
+          font: {
+            size: 5,
+          },
+        },
       },
     },
   };
-  const Chartdata = () => {
-    const { ChartValues: prices_cap, ChartLabels } = ChartHelper(data?.prices);
+  const { ChartValues: Volume, ChartLabels } = ChartHelper(data?.total_volumes);
+  const { ChartValues: prices_cap } = ChartHelper(data?.prices);
+
+  const chartData = () => {
     const chartData = {
       labels: ChartLabels,
       datasets: [
@@ -88,8 +121,8 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
           fill: true,
           tension: 0.3,
           borderWidth: 3,
-          yAxisID: "y",
-          xAxisID: "x",
+          yAxisID: "y1",
+          // xAxisID: "x",
           data: prices_cap,
           pointBorderWidth: 0,
           backgroundColor:
@@ -106,10 +139,32 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
 
     return chartData;
   };
+
+  const chartDataBar = () => {
+    const chartData = {
+      labels: ChartLabels,
+      datasets: [
+        {
+          yAxisID: "y",
+          // xAxisID: "x1",
+          data: Volume,
+          backgroundColor: "#3b464e",
+          borderColor: "#3b464e",
+        },
+      ],
+    };
+
+    return chartData;
+  };
   if (loading) {
     return <Loading />;
   } else {
-    return <Line options={chartOptions} data={Chartdata} height="100px" />;
+    return (
+      <StCoinPageChartContainer>
+        <Line options={chartOptions} data={chartData} height="100px" />
+        <Bar data={chartDataBar} options={chartOptions} height="25px" />
+      </StCoinPageChartContainer>
+    );
   }
 };
 
