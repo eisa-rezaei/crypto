@@ -6,8 +6,10 @@ const Loading = ({ styled }) => {
   return (
     <StLoadingContainer styled={styled}>
       <StLoadingLogoContainer styled={styled}>
-        <GoGear />
-        <GoGear />
+        <span>
+          <GoGear />
+          <GoGear />
+        </span>
       </StLoadingLogoContainer>
     </StLoadingContainer>
   );

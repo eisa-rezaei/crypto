@@ -12,6 +12,7 @@ import {
   StHomeCoinInfoLink,
   StHomeCoinInfoLinks,
   StHomeCoinInfoTitle,
+  StHomeCoinInfoTitleNameBox,
 } from "./style";
 
 const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
@@ -19,12 +20,14 @@ const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
   return (
     <StHomeCoinInfo>
       <StHomeCoinInfoTitle>
-        <img src={image?.large} alt={name} />
-        <span>
-          {info ? <h5>{name}</h5> : <Link to={`/coins/${id}`}>{name}</Link>}
-          <p>({symbol})</p>
-        </span>
-        <FaStar />
+        <StHomeCoinInfoTitleNameBox>
+          <img src={image?.large} alt={name} />
+          <span>
+            {info ? <h5>{name}</h5> : <Link to={`/coins/${id}`}>{name}</Link>}
+            <p>({symbol})</p>
+          </span>
+          <FaStar />
+        </StHomeCoinInfoTitleNameBox>
         {!size ? <h4 className="rank">Rank {rank}</h4> : null}
       </StHomeCoinInfoTitle>
       <StHomeCoinInfoLinks>

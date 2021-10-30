@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StHomeCoinInfo = styled.div`
-  width: clamp(200px, 300px, 400px);
+  width: 100%;
   height: 100%;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10,7 +11,6 @@ export const StHomeCoinInfo = styled.div`
   @media (max-width: 700px) {
     height: auto;
     justify-content: flex-start;
-    align-self: flex-start;
   }
 `;
 export const StHomeCoinInfoTitle = styled.div`
@@ -18,39 +18,23 @@ export const StHomeCoinInfoTitle = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  & svg {
-    color: orange;
-    cursor: pointer;
-  }
+  justify-content: space-between;
   & img {
     width: 65px;
     height: 65px;
     border-radius: 50%;
   }
-  & span {
-    width: 13vw;
-    margin-left: 20px;
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    & p {
-      font-size: 1rem;
-      margin-top: 5px;
-      color: #babbbb;
-    }
-  }
+
   & .rank {
-    margin-left: 20px;
     font-size: 0.8rem;
     padding: 5px 12px;
     border-radius: 20px;
     background-color: #2d5db6;
   }
   @media (max-width: 700px) {
-    width: 90vw;
+    width: 100%;
     & span {
-      width: 20vw;
+      width: 30%;
       font-size: 1rem;
       margin-left: 0px;
       & p {
@@ -61,6 +45,27 @@ export const StHomeCoinInfoTitle = styled.div`
       width: 45px;
       height: 45px;
     }
+  }
+`;
+
+export const StHomeCoinInfoTitleNameBox = styled.div`
+  min-width: 200px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  & p {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #babbbb;
+  }
+  & span {
+    display: flex;
+    flex-direction: column;
+  }
+  & svg {
+    color: orange;
+    cursor: pointer;
+    align-self: center;
   }
 `;
 

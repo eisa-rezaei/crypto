@@ -29,7 +29,7 @@ export const StLoadingContainer = styled.main`
   }
   @media (max-width: 600px) {
     min-height: ${(props) => (props.styled ? `80vh` : `auto`)};
-    padding: 0;
+    padding: 0px;
     & p {
       font-size: 1.2rem;
     }
@@ -41,34 +41,40 @@ export const StLoadingLogoContainer = styled.div`
   margin: 60px auto;
   position: relative;
   font-size: 4rem;
-  & svg:first-child {
-    color: #fff;
-    animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
-      ease-in-out infinite;
+  & svg {
+    :first-child {
+      color: #fff;
+      position: absolute;
+      animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
+        ease-in-out infinite;
+    }
+    :last-child {
+      color: #c073c5;
+      font-size: 3rem;
+      position: absolute;
+      top: 43px;
+      right: 30px;
+      animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
+        ease-in-out infinite;
+    }
   }
-  & svg:last-child {
-    color: #c073c5;
-    font-size: 3rem;
-    position: absolute;
-    top: 43px;
-    right: 30px;
-    animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
-      ease-in-out infinite;
-  }
+
   @media (max-width: 700px) {
     width: 100px;
     height: 100px;
     margin: 0 auto;
     font-size: 2rem;
-    & svg:first-child {
-      top: 25px;
-      right: 20px;
-      font-size: 2rem;
-    }
-    & svg:last-child {
-      top: 15px;
-      right: 18px;
-      font-size: 3rem;
+    & svg {
+      :first-child {
+        top: 10px;
+        right: 32px;
+        font-size: 2rem;
+      }
+      :last-child {
+        top: 33px;
+        right: -3px;
+        font-size: 3rem;
+      }
     }
   }
 `;

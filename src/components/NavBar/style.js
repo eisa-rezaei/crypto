@@ -13,7 +13,7 @@ export const StNavBarContainer = styled.nav`
     letter-spacing: 5px;
   }
   @media (max-width: 700px) {
-    margin: 10px 0;
+    margin: 10px 20px;
     line-height: 1.5;
     & h2 {
       font-size: 0.65rem;

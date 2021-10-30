@@ -18,9 +18,10 @@ export const StSingleCoinInfoListItem = styled.li`
 
   @media (max-width: 700px) {
     height: auto;
-    padding: 10px 0;
+    padding: 10px 0px;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
   }
 `;
 
@@ -92,7 +93,10 @@ export const StSingleCoinInfoDetailPricePart = styled.div`
   }
   @media (max-width: 700px) {
     width: 100%;
+    margin: 10px 0;
+    min-height: 60px;
     min-width: ${(props) => (props.phoneChart ? `160px` : `100px`)};
     margin-right: ${(props) => (props.phoneChart ? `0` : `2vw`)};
+    justify-content: space-between;
   }
 `;

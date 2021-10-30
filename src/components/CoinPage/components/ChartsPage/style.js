@@ -111,11 +111,15 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   }
   @media (max-width: 700px) {
     & input {
-      text-align: center;
+      width: 13vw;
       min-height: 25px;
-      font-size: 0.4rem;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 0.4rem;
+    }
+    & label {
+      margin: 0 5px;
     }
   }
 `;
@@ -136,13 +140,17 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
     }
   }
   @media (max-width: 700px) {
-    width: 100px;
+    width: 110px;
     display: flex;
     justify-content: space-between;
     & button {
+      min-width: 20px;
+      min-height: 20px;
       padding: 5px;
       font-size: 0.5rem;
       border-radius: 50%;
+      align-self: center;
+      justify-self: center;
     }
   }
 `;
