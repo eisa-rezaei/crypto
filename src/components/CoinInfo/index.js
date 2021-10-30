@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 import { COIN_INFO } from "../../data/data";
+import { useSizeChecker } from "../Hook/useSizeChecker";
 
 import {
   StHomeCoinInfo,
@@ -13,7 +14,8 @@ import {
   StHomeCoinInfoTitle,
 } from "./style";
 
-const CoinInfo = ({ image, name, id, symbol, info }) => {
+const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
+  const size = useSizeChecker();
   return (
     <StHomeCoinInfo>
       <StHomeCoinInfoTitle>
@@ -23,6 +25,7 @@ const CoinInfo = ({ image, name, id, symbol, info }) => {
           <p>({symbol})</p>
         </span>
         <FaStar />
+        {!size ? <h4 className="rank">Rank {rank}</h4> : null}
       </StHomeCoinInfoTitle>
       <StHomeCoinInfoLinks>
         {COIN_INFO?.map(({ logo, title }, index) => {

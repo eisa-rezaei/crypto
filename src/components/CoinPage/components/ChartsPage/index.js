@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CoinChart from "../../CoinChart";
 import DatePicker, { utils } from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
+import { useSizeChecker } from "../../../Hook/useSizeChecker";
 
 import {
   StCoinDetailChartsContainer,
@@ -29,6 +30,12 @@ const ChartsPage = React.memo(
     total_supply,
     percentage,
   }) => {
+    const [days, setDays] = useState(30);
+    const [selectedStartDay, setSelectedStartDay] = useState(null);
+    const [selectedEndDay, setSelectedEndDay] = useState(null);
+
+    const size = useSizeChecker();
+
     const newDescription = description?.slice(0, 600);
     const DESCRIPTION = [
       {
@@ -68,11 +75,6 @@ const ChartsPage = React.memo(
           "Lorem ipsum  quos rem? Nesciunt impedit praesentium nemo ametsapiente quidem rerum ab dolorum eos molestias alias veritatis sedmodi repellendus officiis, vero omnis inventore blanditiis!Aliquam laborum enim vel at mollitia ratione, unde iste aliquidexercitationem ipsam consequuntur distinctio officiis providentut, nisi facere!",
       },
     ];
-
-    const [days, setDays] = useState(30);
-    const [selectedStartDay, setSelectedStartDay] = useState(null);
-    const [selectedEndDay, setSelectedEndDay] = useState(null);
-
     const timeBg = {
       1: 1,
       7: 2,
@@ -100,22 +102,24 @@ const ChartsPage = React.memo(
     return (
       <StCoinDetailChartsContainer>
         <StCoinDetailChartsHeader>
-          <h3>{name} Charts</h3>
+          <h3>
+            {name} {size && "Charts"}
+          </h3>
           <StCoinDetailChartsHeaderBtns days={timeBg[days]}>
             <button type="button" id="day" onClick={daysHandler(1)}>
-              Day
+              {size ? `Day` : `D`}
             </button>
             <button type="button" id="week" onClick={daysHandler(7)}>
-              Week
+              {size ? `Week` : `W`}
             </button>
             <button type="button" id="month" onClick={daysHandler(30)}>
-              Month
+              {size ? `Month` : `M`}
             </button>
             <button type="button" id="year" onClick={daysHandler(360)}>
-              Year
+              {size ? `Year` : `Y`}
             </button>
             <button type="button" id="all" onClick={daysHandler(720)}>
-              All
+              {size ? `All` : `A`}
             </button>
           </StCoinDetailChartsHeaderBtns>
           <StCoinDetailChartsHeaderInputs>
@@ -125,7 +129,7 @@ const ChartsPage = React.memo(
               maximumDate={utils().getToday()}
               onChange={setSelectedStartDay}
               minimumDate={minimumDate}
-              inputPlaceholder="Select a day"
+              inputPlaceholder={size ? "Start Date" : "Start "}
               calendarClassName="abcd"
             />
             <label htmlFor="end">To</label>
@@ -133,7 +137,7 @@ const ChartsPage = React.memo(
               value={selectedEndDay}
               maximumDate={utils().getToday()}
               minimumDate={oneDayAfter}
-              inputPlaceholder="Select a day"
+              inputPlaceholder={size ? "End Date" : "End "}
               onChange={selectedStartDay && setSelectedEndDay}
               calendarClassName="abcd"
             />
@@ -159,10 +163,10 @@ const ChartsPage = React.memo(
             ))}
           </StCoinDetailChartsDescriptionDetail>
           <StCoinDetailChartsDescriptionPrices>
-            <h3>{name} Price Today</h3>
+            <h3>{size && name} Price Today</h3>
             <StCoinDetailChartsDescriptionPricesItem>
               <span>
-                <p>{name} Price Today</p>
+                <p>{size && name} Price Today</p>
                 <h5>{price}</h5>
               </span>
               <span>
@@ -184,7 +188,7 @@ const ChartsPage = React.memo(
                 <h5>{yesterDayPrice.toFixed(0)} USD</h5>
               </span>
               <span>
-                <p>{name} Changes 24H</p>
+                <p>Changes 24H</p>
                 <h5 className="change-price">
                   $
                   {Math.abs(change) > 10
@@ -194,7 +198,7 @@ const ChartsPage = React.memo(
                 </h5>
               </span>
               <span>
-                <p>{name} Percentage 24 H</p>
+                <p> Percentage 24 H</p>
                 <h5 className="change-price">{percentage} %</h5>
               </span>
             </StCoinDetailChartsDescriptionPricesItem>

@@ -3,6 +3,7 @@ import { Bar, Line } from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../../Loading";
 import { StCoinPageChartContainer } from "./style";
+import { useSizeChecker } from "../../Hook/useSizeChecker";
 
 const CoinGeckoClient = new CoinGecko();
 const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
@@ -156,13 +157,22 @@ const CoinChart = ({ id, limit, selectedStartDay, selectedEndDay }) => {
 
     return chartData;
   };
+  const size = useSizeChecker();
   if (loading) {
     return <Loading />;
   } else {
     return (
       <StCoinPageChartContainer>
-        <Line options={chartOptions} data={chartData} height="100px" />
-        <Bar data={chartDataBar} options={chartOptions} height="25px" />
+        <Line
+          options={chartOptions}
+          data={chartData}
+          height={size ? `100px` : `130px`}
+        />
+        <Bar
+          data={chartDataBar}
+          options={chartOptions}
+          height={size ? `25px` : `60px`}
+        />
       </StCoinPageChartContainer>
     );
   }

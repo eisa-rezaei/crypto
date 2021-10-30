@@ -28,6 +28,8 @@ export const StLoadingContainer = styled.main`
     font-size: 3rem;
   }
   @media (max-width: 600px) {
+    min-height: ${(props) => (props.styled ? `80vh` : `auto`)};
+    padding: 0;
     & p {
       font-size: 1.2rem;
     }
@@ -41,8 +43,8 @@ export const StLoadingLogoContainer = styled.div`
   font-size: 4rem;
   & svg:first-child {
     color: #fff;
-    animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1s linear
-      infinite;
+    animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
+      ease-in-out infinite;
   }
   & svg:last-child {
     color: #c073c5;
@@ -50,7 +52,23 @@ export const StLoadingLogoContainer = styled.div`
     position: absolute;
     top: 43px;
     right: 30px;
-    animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1s linear
-      infinite;
+    animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
+      ease-in-out infinite;
+  }
+  @media (max-width: 700px) {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    font-size: 2rem;
+    & svg:first-child {
+      top: 25px;
+      right: 20px;
+      font-size: 2rem;
+    }
+    & svg:last-child {
+      top: 15px;
+      right: 18px;
+      font-size: 3rem;
+    }
   }
 `;

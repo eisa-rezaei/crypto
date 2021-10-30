@@ -8,6 +8,10 @@ export const StCoinDetailChartsContainer = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
+  @media (max-width: 700px) {
+    padding: 10px 0;
+  }
 `;
 export const StCoinDetailChartsHeader = styled.header`
   width: 100%;
@@ -18,12 +22,18 @@ export const StCoinDetailChartsHeader = styled.header`
   & h3 {
     font-size: 1.3rem;
   }
+  @media (max-width: 700px) {
+    font-size: 0.4rem;
+    & h3 {
+      font-size: 0.8rem;
+    }
+  }
 `;
 export const StCoinDetailChartsHeaderInputs = styled.div`
   display: flex;
   align-items: center;
   & input {
-    width: 200px;
+    width: 15vw;
     min-height: 45px;
     font-size: 0.9rem;
     text-align: left;
@@ -99,6 +109,15 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   .Calendar__yearSelectorWrapper::before {
     height: 10px;
   }
+  @media (max-width: 700px) {
+    & input {
+      text-align: center;
+      min-height: 25px;
+      font-size: 0.4rem;
+      padding: 0;
+      margin: 0;
+    }
+  }
 `;
 
 export const StCoinDetailChartsHeaderBtns = styled.div`
@@ -116,6 +135,16 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
       color: #fff;
     }
   }
+  @media (max-width: 700px) {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    & button {
+      padding: 5px;
+      font-size: 0.5rem;
+      border-radius: 50%;
+    }
+  }
 `;
 
 export const StCoinDetailChartsDescription = styled.div`
@@ -130,14 +159,23 @@ export const StCoinDetailChartsDescription = styled.div`
 export const StCoinDetailChartsDescriptionDetail = styled.div`
   width: 65%;
   height: auto;
-  word-break: break-all;
   & h3 {
     font-size: 1.3rem;
   }
   & p {
+    word-break: break-all;
     margin: 30px 0;
     color: #aaa;
     font-size: 0.7rem;
+  }
+  @media (max-width: 700px) {
+    & h3 {
+      font-size: 0.8rem;
+    }
+    & p {
+      margin: 15px 0;
+      font-size: 0.4rem;
+    }
   }
 `;
 
@@ -149,6 +187,12 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
   & h3 {
     font-size: 1.3rem;
     margin: 10px 0;
+  }
+  @media (max-width: 700px) {
+    & h3 {
+      font-size: 0.9rem;
+      text-align: center;
+    }
   }
 `;
 
@@ -172,9 +216,24 @@ export const StCoinDetailChartsDescriptionPricesItem = styled.li`
     & h5 {
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
     .change-price {
       color: ${(props) => (props.change ? `#0f0` : `#f00`)};
+    }
+  }
+  @media (max-width: 700px) {
+    & span {
+      margin: 10px 0;
+      padding: 10px 0;
+      font-size: 0.4rem;
+      flex-direction: column;
+      justify-content: center;
+      & p {
+        margin: 0;
+        margin-bottom: 10px;
+        color: #aaa;
+      }
     }
   }
 `;
