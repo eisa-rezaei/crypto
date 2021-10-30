@@ -48,7 +48,7 @@ export const StHomeCoinInfoTitle = styled.div`
     background-color: #2d5db6;
   }
   @media (max-width: 700px) {
-    width: 80vw;
+    width: 90vw;
     & span {
       width: 20vw;
       font-size: 1rem;

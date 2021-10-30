@@ -28,6 +28,8 @@ export const StLoadingContainer = styled.main`
     font-size: 3rem;
   }
   @media (max-width: 600px) {
+    min-height: ${(props) => (props.styled ? `80vh` : `auto`)};
+    padding: 0;
     & p {
       font-size: 1.2rem;
     }
@@ -56,14 +58,17 @@ export const StLoadingLogoContainer = styled.div`
   @media (max-width: 700px) {
     width: 100px;
     height: 100px;
+    margin: 10px auto;
     font-size: 2rem;
     & svg:first-child {
       top: 25px;
       right: 20px;
+      font-size: 2rem;
     }
     & svg:last-child {
       top: 15px;
       right: 18px;
+      font-size: 3rem;
     }
   }
 `;

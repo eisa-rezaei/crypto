@@ -34,7 +34,7 @@ const ChartsPage = React.memo(
     const [selectedStartDay, setSelectedStartDay] = useState(null);
     const [selectedEndDay, setSelectedEndDay] = useState(null);
 
-    const isPcPage = useSizeChecker();
+    const size = useSizeChecker();
 
     const newDescription = description?.slice(0, 600);
     const DESCRIPTION = [
@@ -102,22 +102,24 @@ const ChartsPage = React.memo(
     return (
       <StCoinDetailChartsContainer>
         <StCoinDetailChartsHeader>
-          <h3>{name} Charts</h3>
+          <h3>
+            {name} {size && "Charts"}
+          </h3>
           <StCoinDetailChartsHeaderBtns days={timeBg[days]}>
             <button type="button" id="day" onClick={daysHandler(1)}>
-              {isPcPage ? `Day` : `D`}
+              {size ? `Day` : `D`}
             </button>
             <button type="button" id="week" onClick={daysHandler(7)}>
-              {isPcPage ? `Week` : `W`}
+              {size ? `Week` : `W`}
             </button>
             <button type="button" id="month" onClick={daysHandler(30)}>
-              {isPcPage ? `Month` : `M`}
+              {size ? `Month` : `M`}
             </button>
             <button type="button" id="year" onClick={daysHandler(360)}>
-              {isPcPage ? `Year` : `Y`}
+              {size ? `Year` : `Y`}
             </button>
             <button type="button" id="all" onClick={daysHandler(720)}>
-              {isPcPage ? `All` : `A`}
+              {size ? `All` : `A`}
             </button>
           </StCoinDetailChartsHeaderBtns>
           <StCoinDetailChartsHeaderInputs>
@@ -127,7 +129,7 @@ const ChartsPage = React.memo(
               maximumDate={utils().getToday()}
               onChange={setSelectedStartDay}
               minimumDate={minimumDate}
-              inputPlaceholder="Start Date"
+              inputPlaceholder={size ? "Start Date" : "Start "}
               calendarClassName="abcd"
             />
             <label htmlFor="end">To</label>
@@ -135,7 +137,7 @@ const ChartsPage = React.memo(
               value={selectedEndDay}
               maximumDate={utils().getToday()}
               minimumDate={oneDayAfter}
-              inputPlaceholder="Start Date"
+              inputPlaceholder={size ? "End Date" : "End "}
               onChange={selectedStartDay && setSelectedEndDay}
               calendarClassName="abcd"
             />
@@ -161,10 +163,10 @@ const ChartsPage = React.memo(
             ))}
           </StCoinDetailChartsDescriptionDetail>
           <StCoinDetailChartsDescriptionPrices>
-            <h3>{name} Price Today</h3>
+            <h3>{size && name} Price Today</h3>
             <StCoinDetailChartsDescriptionPricesItem>
               <span>
-                <p>{name} Price Today</p>
+                <p>{size && name} Price Today</p>
                 <h5>{price}</h5>
               </span>
               <span>

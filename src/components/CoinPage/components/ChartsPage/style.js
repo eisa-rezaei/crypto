@@ -25,7 +25,7 @@ export const StCoinDetailChartsHeader = styled.header`
   @media (max-width: 700px) {
     font-size: 0.4rem;
     & h3 {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -111,9 +111,10 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   }
   @media (max-width: 700px) {
     & input {
-      min-height: 30px;
+      text-align: center;
+      min-height: 25px;
       font-size: 0.4rem;
-      padding: 2px 4px;
+      padding: 0;
       margin: 0;
     }
   }
@@ -135,9 +136,12 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
     }
   }
   @media (max-width: 700px) {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
     & button {
-      font-size: 0.4rem;
-      padding: 4px;
+      padding: 5px;
+      font-size: 0.5rem;
       border-radius: 50%;
     }
   }
@@ -166,7 +170,7 @@ export const StCoinDetailChartsDescriptionDetail = styled.div`
   }
   @media (max-width: 700px) {
     & h3 {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     & p {
       margin: 15px 0;
@@ -221,12 +225,13 @@ export const StCoinDetailChartsDescriptionPricesItem = styled.li`
   @media (max-width: 700px) {
     & span {
       margin: 10px 0;
-      padding: 0;
+      padding: 10px 0;
       font-size: 0.4rem;
       flex-direction: column;
       justify-content: center;
       & p {
-        margin: 10px 0;
+        margin: 0;
+        margin-bottom: 10px;
         color: #aaa;
       }
     }

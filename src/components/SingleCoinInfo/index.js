@@ -64,7 +64,7 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
             </StSingleCoinInfoDetailPricePart>
           )}
         </StSingleCoinInfoDetailPrice>
-        <StSingleCoinInfoDetailPrice size={size}>
+        <StSingleCoinInfoDetailPrice>
           <StSingleCoinInfoDetailPricePart>
             <h5>Market Cap</h5>
             <span>
