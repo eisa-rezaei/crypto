@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../Loading";
+import { useSizeChecker } from "../Hook/useSizeChecker";
 import { StChartBoxContainer, StChartBoxContainerPrice } from "./style";
 
 const CoinGeckoClient = new CoinGecko();
 const InternalChart = ({ id, limit }) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+  const size = useSizeChecker();
 
   useEffect(() => {
     const getData = async () => {
@@ -45,7 +47,6 @@ const InternalChart = ({ id, limit }) => {
   const { ChartValues: prices, ChartLabels } = ChartHelper(data?.prices);
 
   const options = {
-    // responsive: true,
     scales: {
       x: {
         display: false,
@@ -68,7 +69,7 @@ const InternalChart = ({ id, limit }) => {
   const percent =
     ((prices[prices.length - 1] - prices[0]) / prices[prices.length - 1]) * 100;
 
-  const Chartdata = {
+  const chartData = {
     labels: ChartLabels,
     datasets: [
       {
@@ -93,11 +94,11 @@ const InternalChart = ({ id, limit }) => {
     return (
       <StChartBoxContainer>
         <StChartBoxContainerPrice isPos={percent > 0}>
-          last {limit || 7} days
+          {size ? `last` : null} {limit || 7} days
           <p>{percent.toFixed(2)}%</p>
         </StChartBoxContainerPrice>
         <span>
-          <Line options={options} data={Chartdata} height="100px" key={id} />
+          <Line options={options} data={chartData} height="100px" key={id} />
         </span>
       </StChartBoxContainer>
     );

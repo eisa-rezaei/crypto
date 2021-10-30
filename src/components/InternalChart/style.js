@@ -20,4 +20,9 @@ export const StChartBoxContainerPrice = styled.div`
   & p {
     color: ${(props) => (props.isPos ? `green` : `red`)};
   }
+  @media (max-width: 700px) {
+    text-align: center;
+    font-size: 0.55rem;
+    margin-right: 5px;
+  }
 `;

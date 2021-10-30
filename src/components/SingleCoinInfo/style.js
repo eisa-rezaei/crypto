@@ -34,6 +34,7 @@ export const StSingleCoinInfoDetail = styled.div`
   @media (max-width: 700px) {
     height: auto;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 export const StSingleCoinInfoDetailPrice = styled.div`
@@ -75,8 +76,8 @@ export const StSingleCoinInfoDetailPrice = styled.div`
   }
 `;
 export const StSingleCoinInfoDetailPricePart = styled.div`
-  min-width: 130px;
-  min-height: 80px;
+  min-width: 100px;
+  min-height: 90px;
   margin-right: 7vw;
   display: flex;
   flex-direction: column;
@@ -90,6 +91,8 @@ export const StSingleCoinInfoDetailPricePart = styled.div`
     background-color: #2d5db6;
   }
   @media (max-width: 700px) {
-    margin-right: 0;
+    width: 100%;
+    min-width: ${(props) => (props.phoneChart ? `160px` : `100px`)};
+    margin-right: ${(props) => (props.phoneChart ? `0` : `2vw`)};
   }
 `;

@@ -33,8 +33,7 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
           <StSingleCoinInfoDetailPricePart>
             <h5>Price</h5>
             <span className="price-usd">
-              $&nbsp;
-              {current_price?.usd.toLocaleString("en").substring(0, 5)}
+              ${current_price?.usd.toLocaleString("en").substring(0, 5)}
               &nbsp; <h5>USD</h5>
             </span>
             <span className="price">
@@ -60,7 +59,15 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
             </>
           ) : (
             <StSingleCoinInfoDetailPricePart>
-              <InternalChart id={id} />
+              <h5>Volume</h5>
+              <span>
+                ${total_volume?.usd.toLocaleString("en")}
+                &nbsp;USD
+              </span>
+              <h5>
+                {total_volume?.btc.toLocaleString("en")}
+                &nbsp;BTC
+              </h5>
             </StSingleCoinInfoDetailPricePart>
           )}
         </StSingleCoinInfoDetailPrice>
@@ -68,7 +75,7 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
           <StSingleCoinInfoDetailPricePart>
             <h5>Market Cap</h5>
             <span>
-              $&nbsp;{market_cap?.usd.toLocaleString("en")}
+              ${market_cap?.usd.toLocaleString("en")}
               &nbsp;USD
             </span>
             <h5>
@@ -76,24 +83,29 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
               &nbsp;BTC
             </h5>
           </StSingleCoinInfoDetailPricePart>
-          <StSingleCoinInfoDetailPricePart>
-            <h5>Volume</h5>
-            <span>
-              $&nbsp;
-              {total_volume?.usd.toLocaleString("en")}
-              &nbsp;USD
-            </span>
-            <h5>
-              {total_volume?.btc.toLocaleString("en")}
-              &nbsp;BTC
-            </h5>
-          </StSingleCoinInfoDetailPricePart>
 
           {size ? (
-            <StSingleCoinInfoDetailPricePart>
+            <>
+              <StSingleCoinInfoDetailPricePart>
+                <h5>Volume</h5>
+                <span>
+                  ${total_volume?.usd.toLocaleString("en")}
+                  &nbsp;USD
+                </span>
+                <h5>
+                  {total_volume?.btc.toLocaleString("en")}
+                  &nbsp;BTC
+                </h5>
+              </StSingleCoinInfoDetailPricePart>
+              <StSingleCoinInfoDetailPricePart>
+                <InternalChart id={id} />
+              </StSingleCoinInfoDetailPricePart>
+            </>
+          ) : (
+            <StSingleCoinInfoDetailPricePart phoneChart>
               <InternalChart id={id} />
             </StSingleCoinInfoDetailPricePart>
-          ) : null}
+          )}
         </StSingleCoinInfoDetailPrice>
       </StSingleCoinInfoDetail>
     </StSingleCoinInfoListItem>

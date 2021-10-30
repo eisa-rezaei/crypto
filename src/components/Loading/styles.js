@@ -58,7 +58,7 @@ export const StLoadingLogoContainer = styled.div`
   @media (max-width: 700px) {
     width: 100px;
     height: 100px;
-    margin: 10px auto;
+    margin: 0 auto;
     font-size: 2rem;
     & svg:first-child {
       top: 25px;
