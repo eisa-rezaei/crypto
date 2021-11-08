@@ -1,6 +1,6 @@
 import React from "react";
 import CoinInfo from "../CoinInfo";
-import { useSizeChecker } from "../Hook/useSizeChecker";
+import {useSizeChecker} from "../Hook/useSizeChecker";
 import InternalChart from "../InternalChart";
 import {
   StSingleCoinInfoDetail,
@@ -9,7 +9,7 @@ import {
   StSingleCoinInfoListItem,
 } from "./style";
 
-const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
+const SingleCoinInfo = ({id, name, symbol, image, market_data}) => {
   const current_price = market_data?.current_price;
   const usdChange24h =
     market_data?.market_cap_change_percentage_24h_in_currency;
@@ -29,8 +29,8 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
         rank={market_cap_rank}
       />
       <StSingleCoinInfoDetail>
-        <StSingleCoinInfoDetailPrice isPriceUp={usdChange24h > 0}>
-          <StSingleCoinInfoDetailPricePart>
+        <StSingleCoinInfoDetailPrice>
+          <StSingleCoinInfoDetailPricePart isPriceUp={usdChange24h?.usd > 0}>
             <h5>Price</h5>
             <span className="price-usd">
               ${current_price?.usd.toLocaleString("en").substring(0, 5)}

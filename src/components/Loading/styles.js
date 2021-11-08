@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const rotate = keyframes`
     from {
@@ -40,9 +40,11 @@ export const StLoadingLogoContainer = styled.div`
   width: 150px;
   margin: 60px auto;
   position: relative;
-  font-size: 4rem;
   & svg {
     :first-child {
+      font-size: 4rem;
+      top: -40px;
+      right: -10px;
       color: #fff;
       position: absolute;
       animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
@@ -52,8 +54,8 @@ export const StLoadingLogoContainer = styled.div`
       color: #c073c5;
       font-size: 3rem;
       position: absolute;
-      top: 43px;
-      right: 30px;
+      top: 3px;
+      right: 50px;
       animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
         ease-in-out infinite;
     }

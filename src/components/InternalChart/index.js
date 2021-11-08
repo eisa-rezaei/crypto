@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import React, {useEffect, useState} from "react";
+import {Line} from "react-chartjs-2";
 import CoinGecko from "coingecko-api";
 import Loading from "../Loading";
-import { useSizeChecker } from "../Hook/useSizeChecker";
-import { StChartBoxContainer, StChartBoxContainerPrice } from "./style";
+import {useSizeChecker} from "../Hook/useSizeChecker";
+import {StChartBoxContainer, StChartBoxContainerPrice} from "./style";
 
 const CoinGeckoClient = new CoinGecko();
-const InternalChart = ({ id, limit }) => {
+const InternalChart = ({id, limit}) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const size = useSizeChecker();
@@ -41,10 +41,10 @@ const InternalChart = ({ id, limit }) => {
       ChartLabels.push(time);
       ChartValues.push(data[i][1]);
     }
-    return { ChartValues, ChartLabels };
+    return {ChartValues, ChartLabels};
   };
 
-  const { ChartValues: prices, ChartLabels } = ChartHelper(data?.prices);
+  const {ChartValues: prices, ChartLabels} = ChartHelper(data?.prices);
 
   const options = {
     scales: {

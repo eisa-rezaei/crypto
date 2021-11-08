@@ -50,27 +50,11 @@ export const StSingleCoinInfoDetailPrice = styled.div`
     font-size: 0.8rem;
     color: #babbbb;
   }
-  .price-usd {
-    display: flex;
-    align-items: flex-end;
-    font-size: 1.5rem;
-  }
-  .price {
-    display: flex;
-    & p {
-      font-size: 0.8rem;
-      color: ${(props) =>
-        props.isPriceUp ? `lightgreen` : `rgba(242, 38, 19, 1)`};
-    }
-  }
   @media (max-width: 700px) {
     height: auto;
     justify-content: space-between;
     margin-left: 0;
     font-size: 0.6rem;
-    .price-usd {
-      font-size: 0.8rem;
-    }
     & h5 {
       font-size: 0.6rem;
     }
@@ -91,6 +75,20 @@ export const StSingleCoinInfoDetailPricePart = styled.div`
     border-radius: 20px;
     background-color: #2d5db6;
   }
+  .price {
+    display: flex;
+    & p {
+      font-size: 0.8rem;
+      color: ${(props) =>
+        props.isPriceUp ? `lightgreen` : `rgba(242, 38, 19, 1)`};
+    }
+  }
+  .price-usd {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5rem;
+  }
+
   @media (max-width: 700px) {
     width: 100%;
     margin: 10px 0;
@@ -98,5 +96,8 @@ export const StSingleCoinInfoDetailPricePart = styled.div`
     min-width: ${(props) => (props.phoneChart ? `160px` : `100px`)};
     margin-right: ${(props) => (props.phoneChart ? `0` : `2vw`)};
     justify-content: space-between;
+    .price-usd {
+      font-size: 0.8rem;
+    }
   }
 `;
