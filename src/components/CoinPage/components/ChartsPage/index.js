@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import CoinChart from "../../CoinChart";
-import DatePicker, { utils } from "react-modern-calendar-datepicker";
+import DatePicker, {utils} from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import { useSizeChecker } from "../../../Hook/useSizeChecker";
+import {useSizeChecker} from "../../../Hook/useSizeChecker";
 
 import {
   StCoinDetailChartsContainer,
@@ -10,6 +10,7 @@ import {
   StCoinDetailChartsDescriptionDetail,
   StCoinDetailChartsDescriptionPrices,
   StCoinDetailChartsDescriptionPricesItem,
+  StCoinDetailChartsDescriptionPricesItemData,
   StCoinDetailChartsHeader,
   StCoinDetailChartsHeaderBtns,
   StCoinDetailChartsHeaderInputs,
@@ -91,7 +92,7 @@ const ChartsPage = React.memo(
 
     const yesterDayPrice = +price?.replace(/\D/g, "") - change;
 
-    const oneDayAfter = { ...selectedStartDay, day: selectedStartDay?.day + 1 };
+    const oneDayAfter = {...selectedStartDay, day: selectedStartDay?.day + 1};
 
     const daysHandler = (day) => () => {
       setDays(day);
@@ -165,29 +166,29 @@ const ChartsPage = React.memo(
           <StCoinDetailChartsDescriptionPrices>
             <h3>{size && name} Price Today</h3>
             <StCoinDetailChartsDescriptionPricesItem>
-              <span>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>{size && name} Price Today</p>
                 <h5>{price}</h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>24 Hour High / Low </p>
-                <h5>
+                <span>
                   <h6>${low} USD</h6>
                   <h6>${high} USD</h6>
-                </h5>
-              </span>
-              <span>
+                </span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>24 Hour vulome</p>
                 <h5>{volume} USD</h5>
-              </span>
+              </StCoinDetailChartsDescriptionPricesItemData>
             </StCoinDetailChartsDescriptionPricesItem>
             <h3>Yesterday's {name} Price </h3>
             <StCoinDetailChartsDescriptionPricesItem change={change > 0}>
-              <span>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>YesterDay Price</p>
                 <h5>{yesterDayPrice.toFixed(0)} USD</h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>Changes 24H</p>
                 <h5 className="change-price">
                   $
@@ -196,37 +197,37 @@ const ChartsPage = React.memo(
                     : change?.toFixed(4)}
                   USD
                 </h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p> Percentage 24 H</p>
                 <h5 className="change-price">{percentage} %</h5>
-              </span>
+              </StCoinDetailChartsDescriptionPricesItemData>
             </StCoinDetailChartsDescriptionPricesItem>
             <h3>History {name} Price </h3>
             <StCoinDetailChartsDescriptionPricesItem>
-              <span>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>{name}</p>
                 <h5>{price} USD</h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>{name}</p>
                 <h5>{price} USD</h5>
-              </span>
+              </StCoinDetailChartsDescriptionPricesItemData>
             </StCoinDetailChartsDescriptionPricesItem>
             <h3>{name} Supply Price </h3>
             <StCoinDetailChartsDescriptionPricesItem>
-              <span>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p> circulating Supply</p>
                 <h5>{cir_supply} USD</h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>total Supply</p>
                 <h5>{total_supply} USD</h5>
-              </span>
-              <span>
+              </StCoinDetailChartsDescriptionPricesItemData>
+              <StCoinDetailChartsDescriptionPricesItemData>
                 <p>Max Supply</p>
                 <h5>{maxSupply} USD</h5>
-              </span>
+              </StCoinDetailChartsDescriptionPricesItemData>
             </StCoinDetailChartsDescriptionPricesItem>
           </StCoinDetailChartsDescriptionPrices>
         </StCoinDetailChartsDescription>

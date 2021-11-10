@@ -26,7 +26,7 @@ const InternalChart = ({id, limit}) => {
         setData(res.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        return;
       }
     };
     getData();

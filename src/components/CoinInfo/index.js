@@ -1,11 +1,11 @@
 import React from "react";
 
-import { BsArrowRight } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
+import {BsArrowRight} from "react-icons/bs";
+import {FaStar} from "react-icons/fa";
 
-import { Link } from "react-router-dom";
-import { COIN_INFO } from "../../data/data";
-import { useSizeChecker } from "../Hook/useSizeChecker";
+import {Link} from "react-router-dom";
+import {COIN_INFO} from "../../data/data";
+import {useSizeChecker} from "../Hook/useSizeChecker";
 
 import {
   StHomeCoinInfo,
@@ -15,7 +15,7 @@ import {
   StHomeCoinInfoTitleNameBox,
 } from "./style";
 
-const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
+const CoinInfo = ({image, name, id, symbol, info, rank}) => {
   const size = useSizeChecker();
   return (
     <StHomeCoinInfo>
@@ -31,7 +31,7 @@ const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
         {!size ? <h4 className="rank">Rank {rank}</h4> : null}
       </StHomeCoinInfoTitle>
       <StHomeCoinInfoLinks>
-        {COIN_INFO?.map(({ logo, title }, index) => {
+        {COIN_INFO?.map(({logo, title}, index) => {
           return (
             <StHomeCoinInfoLink key={index}>
               {logo}

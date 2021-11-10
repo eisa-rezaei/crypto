@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import CoinGecko from "coingecko-api";
-import { useParams } from "react-router";
+import {useParams} from "react-router";
 import Loading from "../Loading";
 import ChartsPage from "./components/ChartsPage";
 import NewsPage from "./components/NewsPage";
@@ -13,7 +13,7 @@ import SingleCoinInfo from "../SingleCoinInfo";
 
 const CoinGeckoClient = new CoinGecko();
 const Coin = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(false);
   const [newsPage, setNewsPage] = useState(false);
@@ -25,7 +25,7 @@ const Coin = () => {
       setCoin(res.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      return;
     }
   }, [id]);
 
@@ -36,7 +36,7 @@ const Coin = () => {
   if (loading) {
     return <Loading styled />;
   } else {
-    const { market_data } = coin;
+    const {market_data} = coin;
     return (
       <StCoinContainer>
         <SingleCoinInfo {...coin} />

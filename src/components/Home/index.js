@@ -1,15 +1,16 @@
-import React, { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useCallback, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import CoinGecko from "coingecko-api";
 
 import selectors from "../../redux/coins/selectors";
-import { fetchCoins } from "../../redux/coins/actions";
+import {fetchCoins} from "../../redux/coins/actions";
 import Loading from "../Loading";
 
-import { StHomeCoinListContainer, StHomeContainer } from "./style";
+import {StHomeCoinListContainer, StHomeContainer} from "./style";
 import SingleCoinInfo from "../SingleCoinInfo";
 
 const CoinGeckoClient = new CoinGecko();
+
 const Home = () => {
   const state = useSelector(selectors.getCoins);
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Home = () => {
       const res = await CoinGeckoClient.coins.all();
       dispatch(fetchCoins(res?.data));
     } catch (error) {
-      console.log(error);
+      return;
     }
   }, [dispatch]);
   useEffect(() => {
@@ -31,7 +32,7 @@ const Home = () => {
       <StHomeContainer>
         <StHomeCoinListContainer>
           {state.slice(0, 20).map((item) => {
-            return <SingleCoinInfo {...item} />;
+            return <SingleCoinInfo {...item} key={item?.id} />;
           })}
         </StHomeCoinListContainer>
       </StHomeContainer>

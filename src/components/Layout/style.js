@@ -1,9 +1,9 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 
 export const StLayoutContainer = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding: 50px 100px;
+  padding: 5vh 8vw;
   overflow: hidden;
   position: relative;
   display: flex;

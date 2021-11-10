@@ -206,29 +206,29 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
 
 export const StCoinDetailChartsDescriptionPricesItem = styled.li`
   margin-bottom: 20px;
+`;
+export const StCoinDetailChartsDescriptionPricesItemData = styled.div`
+  margin: 10px 0px;
+  padding: 0 20px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & p {
+    margin: 30px 0;
+    color: #aaa;
+  }
+  & span {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .change-price {
+    color: ${(props) => (props.change ? `#0f0` : `#f00`)};
+  }
   & span:nth-child(odd) {
     background-color: #e0e0e008;
     border-radius: 10px;
-  }
-  & span {
-    margin: 10px 0px;
-    padding: 0 20px;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    & p {
-      margin: 30px 0;
-      color: #aaa;
-    }
-    & h5 {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-    .change-price {
-      color: ${(props) => (props.change ? `#0f0` : `#f00`)};
-    }
   }
   @media (max-width: 700px) {
     & span {
