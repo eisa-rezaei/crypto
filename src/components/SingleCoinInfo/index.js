@@ -33,7 +33,7 @@ const SingleCoinInfo = ({id, name, symbol, image, market_data}) => {
           <StSingleCoinInfoDetailPricePart isPriceUp={usdChange24h?.usd > 0}>
             <h5>Price</h5>
             <span className="price-usd">
-              ${current_price?.usd.toLocaleString("en").substring(0, 5)}
+              ${current_price?.usd.toLocaleString("en").substring(0, 7)}
               &nbsp; <h5>USD</h5>
             </span>
             <span className="price">
