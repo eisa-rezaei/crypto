@@ -1,19 +1,31 @@
 import styled, {keyframes} from "styled-components";
 
 const rotate = keyframes`
-    from {
+    0% {
         transform: rotate(0deg);
+        color: #fff;
     }
-    to {
+    50% {
         transform: rotate(180deg); 
+        color: #c073c5;
+    }
+    100% {
+        transform: rotate(0);
+        color: #fff;
     }
 `;
 const rotateRevers = keyframes`
-    from {
+    0% {
         transform: rotate(180deg);
+        color: #c073c5;
     }
-    to {
+    50% {
         transform: rotate(0deg); 
+        color: #fff;
+    }
+     100% {
+        transform: rotate(180deg); 
+        color: #c073c5;
     }
 `;
 
@@ -47,7 +59,7 @@ export const StLoadingLogoContainer = styled.div`
       right: -10px;
       color: #fff;
       position: absolute;
-      animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
+      animation: ${(props) => (props.styled ? rotateRevers : rotate)} 2.5s
         ease-in-out infinite;
     }
     :last-child {
@@ -56,7 +68,7 @@ export const StLoadingLogoContainer = styled.div`
       position: absolute;
       top: 3px;
       right: 50px;
-      animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
+      animation: ${(props) => (props.styled ? rotate : rotateRevers)} 2.5s
         ease-in-out infinite;
     }
   }
