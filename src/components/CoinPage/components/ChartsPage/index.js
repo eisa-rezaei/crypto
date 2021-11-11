@@ -3,6 +3,7 @@ import CoinChart from "../../CoinChart";
 import DatePicker, {utils} from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import {useSizeChecker} from "../../../Hook/useSizeChecker";
+import {Description} from "../../../../data/data";
 
 import {
   StCoinDetailChartsContainer,
@@ -30,6 +31,7 @@ const ChartsPage = React.memo(
     cir_supply,
     total_supply,
     percentage,
+    priceNum,
   }) => {
     const [days, setDays] = useState(30);
     const [selectedStartDay, setSelectedStartDay] = useState(null);
@@ -37,45 +39,6 @@ const ChartsPage = React.memo(
 
     const size = useSizeChecker();
 
-    const newDescription = description?.slice(0, 600);
-    const DESCRIPTION = [
-      {
-        title: `About ${name}`,
-        description: newDescription,
-      },
-      {
-        title: `What is  ${name}`,
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing  tempora perspiciatis iure quidemcorrupti, quos rem? Nesciunt impedit praesentium nemo ametsapiente quidem rerum ab dolorum eos molestias alias veritatis sedmodi repellendus officiis, vero omnis inventore blanditiis!Aliquam laborum enim vel at mollitia ratione, unde iste aliquidexercitationem ipsam consequuntur distinctio officiis providentut, nisi facere!",
-      },
-      {
-        title: `How much ${name} is in circlulation?`,
-        description: newDescription,
-      },
-      {
-        title: `About ${name}`,
-        description:
-          "Lorem ipsum dolor sit amet, quos rem? Nesciunt impedit praesentium nemo ametsapiente quidem rerum ab dolorum eos molestias alias veritatis sedmodi repellendus officiis, vero omnis inventore blanditiis!Aliquam laborum enim vel at mollitia ratione, unde iste aliquidexercitationem ipsam consequuntur distinctio officiis providentut, nisi facere!",
-      },
-      {
-        title: `Who are the founders of ${name}?`,
-        description: newDescription,
-      },
-      {
-        title: `What makes ${name} unique?`,
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipiscimaiores voluptatibus tenetur tempora perspiciatis iure quidemcorrupti, quos rem? Nesciunt impedit praesentium nemo ametsapiente quidem rerum ab dolorum eos molestias alias veritatis sedmodi repellendus officiis, vero omnis inventore blanditiis!Aliquam laborum enim vel at mollitia ratione, unde iste aliquidexercitationem ipsam consequuntur distinctio officiis providentut, nisi facere!",
-      },
-      {
-        title: `How much ${name} is in circlulation?`,
-        description: newDescription,
-      },
-      {
-        title: `How is the ${name} network is secured?`,
-        description:
-          "Lorem ipsum  quos rem? Nesciunt impedit praesentium nemo ametsapiente quidem rerum ab dolorum eos molestias alias veritatis sedmodi repellendus officiis, vero omnis inventore blanditiis!Aliquam laborum enim vel at mollitia ratione, unde iste aliquidexercitationem ipsam consequuntur distinctio officiis providentut, nisi facere!",
-      },
-    ];
     const timeBg = {
       1: 1,
       7: 2,
@@ -90,7 +53,7 @@ const ChartsPage = React.memo(
       day: 1,
     };
 
-    const yesterDayPrice = +price?.replace(/\D/g, "") - change;
+    const yesterDayPrice = +priceNum - change;
 
     const oneDayAfter = {...selectedStartDay, day: selectedStartDay?.day + 1};
 
@@ -100,28 +63,28 @@ const ChartsPage = React.memo(
       setSelectedEndDay(null);
     };
 
+    const DESCRIPTION = Description(name, description);
+
+    const COIN_PAGE_BTNS_TITLE = [
+      {title: "Day", value: 1},
+      {title: "Week", value: 7},
+      {title: "Month", value: 30},
+      {title: "Year", value: 360},
+      {title: "All", value: 720},
+    ];
+
     return (
       <StCoinDetailChartsContainer>
         <StCoinDetailChartsHeader>
           <h3>
-            {name} {size && "Charts"}
+            {name}&nbsp;{size && "Chart"}
           </h3>
           <StCoinDetailChartsHeaderBtns days={timeBg[days]}>
-            <button type="button" id="day" onClick={daysHandler(1)}>
-              {size ? `Day` : `D`}
-            </button>
-            <button type="button" id="week" onClick={daysHandler(7)}>
-              {size ? `Week` : `W`}
-            </button>
-            <button type="button" id="month" onClick={daysHandler(30)}>
-              {size ? `Month` : `M`}
-            </button>
-            <button type="button" id="year" onClick={daysHandler(360)}>
-              {size ? `Year` : `Y`}
-            </button>
-            <button type="button" id="all" onClick={daysHandler(720)}>
-              {size ? `All` : `A`}
-            </button>
+            {COIN_PAGE_BTNS_TITLE?.map(({title, value}) => (
+              <button type="button" onClick={daysHandler(value)} key={value}>
+                {size ? title : title.substring(0, 1)}
+              </button>
+            ))}
           </StCoinDetailChartsHeaderBtns>
           <StCoinDetailChartsHeaderInputs>
             <label htmlFor="start">From</label>
@@ -168,7 +131,7 @@ const ChartsPage = React.memo(
             <StCoinDetailChartsDescriptionPricesItem>
               <StCoinDetailChartsDescriptionPricesItemData>
                 <p>{size && name} Price Today</p>
-                <h5>{price}</h5>
+                <h5>${price} USD</h5>
               </StCoinDetailChartsDescriptionPricesItemData>
               <StCoinDetailChartsDescriptionPricesItemData>
                 <p>24 Hour High / Low </p>
@@ -186,16 +149,22 @@ const ChartsPage = React.memo(
             <StCoinDetailChartsDescriptionPricesItem change={change > 0}>
               <StCoinDetailChartsDescriptionPricesItemData>
                 <p>YesterDay Price</p>
-                <h5>{yesterDayPrice.toFixed(0)} USD</h5>
+                <h5>
+                  $
+                  {yesterDayPrice > 100
+                    ? yesterDayPrice.toFixed(0)
+                    : yesterDayPrice.toFixed(2)}
+                  &nbsp;USD
+                </h5>
               </StCoinDetailChartsDescriptionPricesItemData>
               <StCoinDetailChartsDescriptionPricesItemData>
                 <p>Changes 24H</p>
                 <h5 className="change-price">
                   $
-                  {Math.abs(change) > 10
+                  {Math.abs(change) > 1
                     ? change?.toFixed(2)
-                    : change?.toFixed(4)}
-                  USD
+                    : change?.toFixed(3)}
+                  &nbsp;USD
                 </h5>
               </StCoinDetailChartsDescriptionPricesItemData>
               <StCoinDetailChartsDescriptionPricesItemData>

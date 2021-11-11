@@ -19,7 +19,7 @@ export const StNewsContainer = styled.ul`
   }
 `;
 export const StSingleNews = styled.li`
-  width: 270px;
+  width: 260px;
   height: auto;
   border-radius: 5px;
   overflow: hidden;

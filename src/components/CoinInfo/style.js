@@ -10,7 +10,7 @@ export const StHomeCoinInfo = styled.div`
   justify-content: center;
   @media (max-width: 700px) {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     height: auto;
     justify-content: flex-start;
   }
@@ -51,7 +51,7 @@ export const StHomeCoinInfoTitle = styled.div`
 `;
 
 export const StHomeCoinInfoTitleNameBox = styled.div`
-  min-width: 200px;
+  min-width: 180px;
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;

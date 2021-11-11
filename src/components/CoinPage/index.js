@@ -56,6 +56,7 @@ const Coin = () => {
               id={coin?.id}
               description={coin?.description?.en}
               price={market_data?.current_price?.usd.toLocaleString("en")}
+              priceNum={market_data?.current_price?.usd}
               low={market_data?.high_24h?.usd.toLocaleString("en")}
               high={market_data?.low_24h?.usd.toLocaleString("en")}
               volume={market_data?.total_volume?.usd.toLocaleString("en")}

@@ -13,6 +13,7 @@ export const StLayoutContainer = styled.main`
   background-color: #181a1d;
   @media (max-width: 700px) {
     padding: 10px;
+    padding-bottom: 30px;
   }
 `;
 

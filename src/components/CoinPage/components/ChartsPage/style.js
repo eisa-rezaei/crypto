@@ -132,7 +132,7 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
   & button {
     color: #3b4851;
     cursor: pointer;
-    padding: 8px 20px;
+    padding: 8px 15px;
     border-radius: 10px;
     transition: all 0.5s;
     :hover {
@@ -162,6 +162,11 @@ export const StCoinDetailChartsDescription = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    padding: 0 20px;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 `;
 
 export const StCoinDetailChartsDescriptionDetail = styled.div`
@@ -177,6 +182,7 @@ export const StCoinDetailChartsDescriptionDetail = styled.div`
     font-size: 0.7rem;
   }
   @media (max-width: 700px) {
+    width: 100%;
     & h3 {
       font-size: 0.8rem;
     }
@@ -197,8 +203,13 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
     margin: 10px 0;
   }
   @media (max-width: 700px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
     & h3 {
-      font-size: 0.9rem;
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
       text-align: center;
     }
   }
@@ -206,8 +217,14 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
 
 export const StCoinDetailChartsDescriptionPricesItem = styled.li`
   margin-bottom: 20px;
+  & div:nth-child(odd) {
+    background-color: #e0e0e008;
+    border-radius: 10px;
+  }
 `;
 export const StCoinDetailChartsDescriptionPricesItemData = styled.div`
+  width: 100%;
+  min-height: 75px;
   margin: 10px 0px;
   padding: 0 20px;
   font-size: 0.7rem;
@@ -226,22 +243,26 @@ export const StCoinDetailChartsDescriptionPricesItemData = styled.div`
   .change-price {
     color: ${(props) => (props.change ? `#0f0` : `#f00`)};
   }
-  & span:nth-child(odd) {
-    background-color: #e0e0e008;
-    border-radius: 10px;
-  }
+
   @media (max-width: 700px) {
+    min-height: 50px;
+    padding: 0 10px;
+
+    & p {
+      width: 45px;
+      margin: 0;
+      color: #aaa;
+      font-size: 0.5rem;
+    }
+    & h5 {
+      font-size: 0.4rem;
+    }
     & span {
       margin: 10px 0;
       padding: 10px 0;
       font-size: 0.4rem;
       flex-direction: column;
       justify-content: center;
-      & p {
-        margin: 0;
-        margin-bottom: 10px;
-        color: #aaa;
-      }
     }
   }
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StFooterContainer = styled.footer`
   width: 100%;
-  min-height: 30px;
+  min-height: 24px;
   position: absolute;
   bottom: 0;
   color: #aaa;
@@ -20,7 +20,7 @@ export const StFooterContainer = styled.footer`
     font-size: 0.4rem;
     letter-spacing: 1px;
     & span {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 `;
