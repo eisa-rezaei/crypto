@@ -9,6 +9,8 @@ export const StHomeCoinInfo = styled.div`
   align-items: flex-start;
   justify-content: center;
   @media (max-width: 700px) {
+    width: 100%;
+    padding: 0 20px;
     height: auto;
     justify-content: flex-start;
   }

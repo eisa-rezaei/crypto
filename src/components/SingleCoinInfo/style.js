@@ -51,6 +51,7 @@ export const StSingleCoinInfoDetailPrice = styled.div`
     color: #babbbb;
   }
   @media (max-width: 700px) {
+    width: 100%;
     height: auto;
     justify-content: space-between;
     margin-left: 0;
