@@ -10,9 +10,14 @@ export const StFooterContainer = styled.footer`
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  & span {
+    font-size: 1.2rem;
+    line-height: 1;
+    align-self: flex-end;
+  }
   @media (max-width: 700px) {
     font-size: 0.4rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 `;

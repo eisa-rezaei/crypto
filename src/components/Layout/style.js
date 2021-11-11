@@ -3,7 +3,7 @@ import styled, {createGlobalStyle} from "styled-components";
 export const StLayoutContainer = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding: 5vh 8vw;
+  padding: 50px 150px;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -29,7 +29,8 @@ export const GlobalStyle = createGlobalStyle`
 body {
 	line-height: 1;
     background-color: #1e2429;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Changa", sans-serif;
+
 }
 section {
     display: block;

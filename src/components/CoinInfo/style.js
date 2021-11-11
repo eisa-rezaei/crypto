@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const StHomeCoinInfo = styled.div`
-  width: 100%;
+  width: 350px;
   height: 100%;
-  padding: 0 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

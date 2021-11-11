@@ -38,7 +38,7 @@ const CoinChart = React.memo(
           setData(res?.data);
           setLoading(false);
         } catch (error) {
-          console.log(error);
+          return;
         }
       };
       selectedStartDay && selectedEndDay && getData();
@@ -114,17 +114,25 @@ const CoinChart = React.memo(
     const {ChartValues: Volume, ChartLabels} = ChartHelper(data?.total_volumes);
     const {ChartValues: prices_cap} = ChartHelper(data?.prices);
 
+    const chartValueDecrease = (data) => {
+      let newArr = [];
+      data.map((item, index) => {
+        if (index % 2 === 0) newArr.push(item);
+        return false;
+      });
+      return newArr;
+    };
+
     const chartData = () => {
       const chartData = {
-        labels: ChartLabels,
+        labels: chartValueDecrease(ChartLabels),
         datasets: [
           {
             fill: true,
             tension: 0.3,
             borderWidth: 3,
             yAxisID: "y1",
-            // xAxisID: "x",
-            data: prices_cap,
+            data: chartValueDecrease(prices_cap),
             pointBorderWidth: 0,
             backgroundColor:
               prices_cap[0] < prices_cap[prices_cap.length - 1]

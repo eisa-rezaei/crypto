@@ -6,6 +6,7 @@ import {
   StSingleCoinInfoDetail,
   StSingleCoinInfoDetailPrice,
   StSingleCoinInfoDetailPricePart,
+  StSingleCoinInfoDetailPricePartRank,
   StSingleCoinInfoListItem,
 } from "./style";
 
@@ -44,18 +45,18 @@ const SingleCoinInfo = ({id, name, symbol, image, market_data}) => {
           </StSingleCoinInfoDetailPricePart>
           {size ? (
             <>
-              <StSingleCoinInfoDetailPricePart>
+              <StSingleCoinInfoDetailPricePartRank>
                 <h5>Rank</h5>
                 <span className="rank">Rank&nbsp;{market_cap_rank}</span>
-              </StSingleCoinInfoDetailPricePart>
-              <StSingleCoinInfoDetailPricePart>
+              </StSingleCoinInfoDetailPricePartRank>
+              <StSingleCoinInfoDetailPricePartRank>
                 <h5>Health</h5>
                 <span>Attractive</span>
-              </StSingleCoinInfoDetailPricePart>
-              <StSingleCoinInfoDetailPricePart>
+              </StSingleCoinInfoDetailPricePartRank>
+              <StSingleCoinInfoDetailPricePartRank>
                 <h5>sentiment</h5>
                 <span>Attractive</span>
-              </StSingleCoinInfoDetailPricePart>
+              </StSingleCoinInfoDetailPricePartRank>
             </>
           ) : (
             <StSingleCoinInfoDetailPricePart>

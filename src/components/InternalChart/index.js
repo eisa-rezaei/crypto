@@ -15,13 +15,10 @@ const InternalChart = ({id, limit}) => {
       setLoading(true);
       const days = limit || 7;
       try {
-        const res = await CoinGeckoClient.coins.fetchMarketChart(
-          id?.toString(),
-          {
-            days,
-            vs_currency: "usd",
-          }
-        );
+        const res = await CoinGeckoClient.coins.fetchMarketChart(id, {
+          days,
+          vs_currency: "usd",
+        });
         setData(res.data);
         setLoading(false);
       } catch (error) {
@@ -44,6 +41,15 @@ const InternalChart = ({id, limit}) => {
   };
 
   const {ChartValues: prices, ChartLabels} = ChartHelper(data?.prices);
+
+  const chartValueDecrease = (data) => {
+    let newArr = [];
+    data.map((item, index) => {
+      if (index % 2 === 0) newArr.push(item);
+      return false;
+    });
+    return newArr;
+  };
 
   const options = {
     scales: {
@@ -69,13 +75,13 @@ const InternalChart = ({id, limit}) => {
     ((prices[prices.length - 1] - prices[0]) / prices[prices.length - 1]) * 100;
 
   const chartData = {
-    labels: ChartLabels,
+    labels: chartValueDecrease(ChartLabels),
     datasets: [
       {
         fill: true,
         backgroundColor:
           percent > 0 ? "rgba(40, 194, 129, 0.2)" : "rgba(138, 30, 33, 0.2)",
-        data: prices,
+        data: chartValueDecrease(prices),
         borderColor:
           percent > 0 ? "rgba(40, 194, 129, 1)" : "rgba(167, 46, 39, 1)",
         pointBorderWidth: 0,
