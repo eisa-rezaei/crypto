@@ -19,5 +19,8 @@ export const StFooterContainer = styled.footer`
   @media (max-width: 700px) {
     font-size: 0.4rem;
     letter-spacing: 1px;
+    & span {
+      font-size: 0.9rem;
+    }
   }
 `;
