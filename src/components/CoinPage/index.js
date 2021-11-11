@@ -1,17 +1,16 @@
 import React, {useCallback, useEffect, useState} from "react";
-import CoinGecko from "coingecko-api";
 import {useParams} from "react-router";
 import Loading from "../Loading";
 import ChartsPage from "./components/ChartsPage";
 import NewsPage from "./components/NewsPage";
+import {CoinGeckoClient} from "../api/coinGecko";
+import SingleCoinInfo from "../SingleCoinInfo";
 import {
   StCoinContainer,
   StCoinInfoDetailNewsCharts,
   StCoinInfoDetailNav,
 } from "./style";
-import SingleCoinInfo from "../SingleCoinInfo";
 
-const CoinGeckoClient = new CoinGecko();
 const Coin = () => {
   const {id} = useParams();
   const [coin, setCoin] = useState({});

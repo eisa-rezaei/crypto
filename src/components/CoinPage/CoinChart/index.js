@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Bar, Line} from "react-chartjs-2";
-import CoinGecko from "coingecko-api";
 import Loading from "../../Loading";
 import {StCoinPageChartContainer} from "./style";
 import {useSizeChecker} from "../../Hook/useSizeChecker";
-
-const CoinGeckoClient = new CoinGecko();
+import {CoinGeckoClient} from "../../api/coinGecko";
 
 const CoinChart = React.memo(
   ({id, limit, selectedStartDay, selectedEndDay}) => {
@@ -14,17 +12,17 @@ const CoinChart = React.memo(
 
     useEffect(() => {
       const getData = async () => {
+        setLoading(true);
         try {
-          setLoading(true);
           const res = await CoinGeckoClient.coins.fetchMarketChart(id, {
             days: limit || 7,
             vs_currency: "usd",
           });
           setData(res?.data);
-          setLoading(false);
         } catch (error) {
           return;
         }
+        setLoading(false);
       };
       getData();
     }, [id, limit]);

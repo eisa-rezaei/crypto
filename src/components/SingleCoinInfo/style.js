@@ -61,7 +61,7 @@ export const StSingleCoinInfoDetailPrice = styled.div`
   }
 `;
 export const StSingleCoinInfoDetailPricePart = styled.div`
-  min-width: 100px;
+  min-width: 157px;
   min-height: 90px;
   margin-right: 7vw;
   display: flex;
