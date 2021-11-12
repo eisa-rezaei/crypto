@@ -3,7 +3,7 @@ import {useState, useEffect, useCallback} from "react";
 export const useSizeChecker = () => {
   const [sizeCheck, setSizeCheck] = useState(window.innerWidth > 700);
   const checkSize = useCallback(() => {
-    setSizeCheck(window.innerWidth > 700);
+    setSizeCheck(window.innerWidth > 750);
   }, []);
 
   useEffect(() => {

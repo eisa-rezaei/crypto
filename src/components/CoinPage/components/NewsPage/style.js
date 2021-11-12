@@ -14,7 +14,7 @@ export const StNewsContainer = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     flex-direction: column;
   }
 `;
@@ -29,7 +29,7 @@ export const StSingleNews = styled.li`
   flex-direction: column;
   justify-content: center;
   background-color: #1c2024;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     margin: 20px 0;
   }

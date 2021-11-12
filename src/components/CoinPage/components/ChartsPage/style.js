@@ -9,7 +9,7 @@ export const StCoinDetailChartsContainer = styled.section`
   align-items: flex-start;
   justify-content: flex-start;
 
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 10px 0;
   }
 `;
@@ -22,7 +22,7 @@ export const StCoinDetailChartsHeader = styled.header`
   & h3 {
     font-size: 1.3rem;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     font-size: 0.4rem;
     & h3 {
       font-size: 0.8rem;
@@ -109,7 +109,7 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   .Calendar__yearSelectorWrapper::before {
     height: 10px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     & input {
       width: 13vw;
       min-height: 25px;
@@ -139,7 +139,7 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
       color: #fff;
     }
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 110px;
     display: flex;
     justify-content: space-between;
@@ -162,7 +162,7 @@ export const StCoinDetailChartsDescription = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 0 20px;
     flex-direction: column-reverse;
     justify-content: center;
@@ -181,7 +181,7 @@ export const StCoinDetailChartsDescriptionDetail = styled.div`
     color: #aaa;
     font-size: 0.7rem;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     & h3 {
       font-size: 0.8rem;
@@ -202,7 +202,7 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
     font-size: 1.3rem;
     margin: 10px 0;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -244,7 +244,7 @@ export const StCoinDetailChartsDescriptionPricesItemData = styled.div`
     color: ${(props) => (props.change ? `#0f0` : `#f00`)};
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     min-height: 50px;
     padding: 0 10px;
 

@@ -73,7 +73,7 @@ export const StLoadingLogoContainer = styled.div`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100px;
     height: 100px;
     margin: 0 auto;

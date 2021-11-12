@@ -8,7 +8,7 @@ export const StHomeCoinInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     padding: 0 10px;
     height: auto;
@@ -33,7 +33,7 @@ export const StHomeCoinInfoTitle = styled.div`
     border-radius: 20px;
     background-color: #2d5db6;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     width: 100%;
     & span {
       width: 30%;
@@ -77,7 +77,7 @@ export const StHomeCoinInfoLinks = styled.ul`
   margin-top: 20px;
   margin-left: 15px;
   font-size: 0.8rem;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     display: none;
   }
 `;

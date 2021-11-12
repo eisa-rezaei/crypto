@@ -19,7 +19,7 @@ export const StCoinInfoDetailNewsCharts = styled.article`
   justify-content: flex-start;
   background-color: #1e2429;
   border-radius: 20px;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 5px 10px;
   }
 `;
@@ -35,7 +35,7 @@ export const StCoinInfoDetailNav = styled.nav`
   & :nth-child(${(props) => (props.newsPage ? `2` : `1`)}) {
     border-bottom: 2px solid #f8c02d;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     border-bottom: 1px solid #181a1d;
     & button {
       padding: 10px;
