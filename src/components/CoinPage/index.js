@@ -20,13 +20,20 @@ const Coin = () => {
   const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await CoinGeckoClient.coins.fetch(id, {});
+      const res = await CoinGeckoClient.coins.fetch(id, {
+        localization: false,
+        tickers: false,
+        developer_data: false,
+        community_data: false,
+        sparkline: false,
+      });
       setCoin(res.data);
       setLoading(false);
     } catch (error) {
       return;
     }
   }, [id]);
+  console.log(coin);
 
   useEffect(() => {
     getData();

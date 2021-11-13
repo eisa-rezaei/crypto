@@ -17,7 +17,10 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await CoinGeckoClient.coins.all();
+        const res = await CoinGeckoClient.coins.all({
+          per_page: 15,
+          localization: false,
+        });
         dispatch(fetchCoins(res?.data));
       } catch (error) {
         return;
@@ -31,7 +34,7 @@ const Home = () => {
     return (
       <StHomeContainer>
         <StHomeCoinListContainer>
-          {state.slice(0, 15).map((item) => (
+          {state.map((item) => (
             <SingleCoinInfo {...item} key={item?.id} />
           ))}
         </StHomeCoinListContainer>
