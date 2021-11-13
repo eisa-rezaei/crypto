@@ -35,7 +35,7 @@ const Home = () => {
       <StHomeContainer>
         <StHomeCoinListContainer>
           {state.map((item) => (
-            <SingleCoinInfo {...item} key={item?.id} />
+            <SingleCoinInfo {...item} key={item.id} />
           ))}
         </StHomeCoinListContainer>
       </StHomeContainer>

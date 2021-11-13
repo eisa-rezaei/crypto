@@ -80,7 +80,7 @@ const ChartsPage = React.memo(
             {name}&nbsp;{size && "Chart"}
           </h3>
           <StCoinDetailChartsHeaderBtns days={timeBg[days]}>
-            {COIN_PAGE_BTNS_TITLE?.map(({title, value}) => (
+            {COIN_PAGE_BTNS_TITLE.map(({title, value}) => (
               <button type="button" onClick={daysHandler(value)} key={value}>
                 {title}
               </button>

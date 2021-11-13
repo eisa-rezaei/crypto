@@ -28,10 +28,10 @@ const CoinInfo = ({image, name, id, symbol, info, rank}) => {
           </span>
           <FaStar />
         </StHomeCoinInfoTitleNameBox>
-        {!size ? <h4 className="rank">Rank {rank}</h4> : null}
+        {size ? null : <h4 className="rank">Rank {rank}</h4>}
       </StHomeCoinInfoTitle>
       <StHomeCoinInfoLinks>
-        {COIN_INFO?.map(({logo, title}, index) => {
+        {COIN_INFO.map(({logo, title}, index) => {
           return (
             <StHomeCoinInfoLink key={index}>
               {logo}

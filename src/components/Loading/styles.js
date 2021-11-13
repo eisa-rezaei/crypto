@@ -60,8 +60,7 @@ export const StLoadingLogoContainer = styled.div`
       right: -10px;
       color: #fff;
       position: absolute;
-      animation: ${(props) => (props.styled ? rotateRevers : rotate)} 2.5s
-        ease-in-out infinite;
+      animation: ${rotate} 2.5s ease-in-out infinite;
     }
     :last-child {
       color: #c073c5;
@@ -69,8 +68,7 @@ export const StLoadingLogoContainer = styled.div`
       position: absolute;
       top: 3px;
       right: 50px;
-      animation: ${(props) => (props.styled ? rotate : rotateRevers)} 2.5s
-        ease-in-out infinite;
+      animation: ${rotateRevers} 2.5s ease-in-out infinite;
     }
   }
 

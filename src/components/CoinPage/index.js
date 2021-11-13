@@ -33,7 +33,6 @@ const Coin = () => {
       return;
     }
   }, [id]);
-  console.log(coin);
 
   useEffect(() => {
     getData();
