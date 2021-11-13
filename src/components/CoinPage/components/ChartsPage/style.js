@@ -33,7 +33,7 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   display: flex;
   align-items: center;
   & input {
-    width: 15vw;
+    width: 12vw;
     min-height: 45px;
     font-size: 0.9rem;
     text-align: left;
@@ -111,9 +111,10 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   }
   @media (max-width: 750px) {
     width: 100%;
+    justify-content: space-around;
     margin-top: 10px;
     & input {
-      width: 100px;
+      width: 28vw;
       min-height: 30px;
       margin: 0;
       padding: 0;
@@ -142,8 +143,14 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
       color: #fff;
     }
   }
+  @media (min-width: 750px) and (max-width: 1000px) {
+    & button {
+      font-size: 0.65rem;
+      padding: 8px 10px;
+    }
+  }
   @media (max-width: 750px) {
-    width: 210px;
+    width: 70%;
     display: flex;
     justify-content: space-around;
     & button {
