@@ -119,26 +119,28 @@ const ChartsPage = React.memo(
             `${selectedEndDay?.year}.${selectedEndDay?.month}.${selectedEndDay?.day}`
           ).getTime()}
         />
-        <StCoinDetailChartsHeaderInputs>
-          <label htmlFor="start">From</label>
-          <DatePicker
-            value={selectedStartDay}
-            maximumDate={utils().getToday()}
-            onChange={setSelectedStartDay}
-            minimumDate={minimumDate}
-            inputPlaceholder="Start Date"
-            calendarClassName="abcd"
-          />
-          <label htmlFor="end">To</label>
-          <DatePicker
-            value={selectedEndDay}
-            maximumDate={utils().getToday()}
-            minimumDate={oneDayAfter}
-            inputPlaceholder="End Date"
-            onChange={selectedStartDay && setSelectedEndDay}
-            calendarClassName="abcd"
-          />
-        </StCoinDetailChartsHeaderInputs>
+        {!size && (
+          <StCoinDetailChartsHeaderInputs>
+            <label htmlFor="start">From</label>
+            <DatePicker
+              value={selectedStartDay}
+              maximumDate={utils().getToday()}
+              onChange={setSelectedStartDay}
+              minimumDate={minimumDate}
+              inputPlaceholder="Start Date"
+              calendarClassName="abcd"
+            />
+            <label htmlFor="end">To</label>
+            <DatePicker
+              value={selectedEndDay}
+              maximumDate={utils().getToday()}
+              minimumDate={oneDayAfter}
+              inputPlaceholder="End Date"
+              onChange={selectedStartDay && setSelectedEndDay}
+              calendarClassName="abcd"
+            />
+          </StCoinDetailChartsHeaderInputs>
+        )}
         <StCoinDetailChartsDescription>
           <StCoinDetailChartsDescriptionDetail>
             {DESCRIPTION.map((item, index) => (
