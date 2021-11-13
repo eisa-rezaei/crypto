@@ -39,8 +39,8 @@ export const StLoadingContainer = styled.main`
   & p {
     font-size: 3rem;
   }
-  @media (max-width: 600px) {
-    min-height: ${(props) => (props.styled ? `80vh` : `auto`)};
+  @media (max-width: 750px) {
+    min-height: ${(props) => (props.styled ? `80vh` : `50vh`)};
     position: relative;
     padding: 0px;
     & p {

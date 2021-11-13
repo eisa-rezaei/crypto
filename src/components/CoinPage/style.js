@@ -38,8 +38,8 @@ export const StCoinInfoDetailNav = styled.nav`
   @media (max-width: 750px) {
     border-bottom: 1px solid #181a1d;
     & button {
-      padding: 10px;
-      font-size: 0.5rem;
+      padding: 15px;
+      font-size: 0.8rem;
     }
   }
 `;

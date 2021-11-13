@@ -174,12 +174,12 @@ const CoinChart = React.memo(
           <Line
             options={chartOptions}
             data={chartData}
-            height={size ? `100px` : `130px`}
+            height={size ? `100px` : `200px`}
           />
           <Bar
             data={chartDataBar}
             options={chartOptions}
-            height={size ? `25px` : `60px`}
+            height={size ? `25px` : `100px`}
           />
         </StCoinPageChartContainer>
       );

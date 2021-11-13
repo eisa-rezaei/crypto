@@ -17,7 +17,7 @@ export const StFooterContainer = styled.footer`
     align-self: flex-end;
   }
   @media (max-width: 750px) {
-    font-size: 0.45rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     & span {
       font-size: 0.8rem;
