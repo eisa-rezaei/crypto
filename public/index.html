@@ -66,10 +66,25 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
       <div class="pre-content">
-        <span></span>
+        <span onclick="onDoubleClick()"></span>
         <h1>Loading ...</h1>
         <p>Crypto Currency application</p>
       </div>
     </div>
   </body>
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>
+    eruda.init();
+  </script>
+  <script>
+    const onDoubleClick = () => {
+      console.log("clicked");
+      var script = document.createElement("script");
+      script.src = "//cdn.jsdelivr.net/npm/eruda";
+      document.body.appendChild(script);
+      script.onload = function () {
+        eruda.init();
+      };
+    };
+  </script>
 </html>
