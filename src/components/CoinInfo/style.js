@@ -51,7 +51,7 @@ export const StHomeCoinInfoTitle = styled.div`
 `;
 
 export const StHomeCoinInfoTitleNameBox = styled.div`
-  min-width: 180px;
+  min-width: 250px;
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
@@ -68,6 +68,9 @@ export const StHomeCoinInfoTitleNameBox = styled.div`
     color: orange;
     cursor: pointer;
     align-self: center;
+  }
+  @media (max-width: 750px) {
+    min-width: 180px;
   }
 `;
 

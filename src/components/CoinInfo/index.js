@@ -31,17 +31,15 @@ const CoinInfo = ({image, name, id, symbol, info, rank}) => {
         {size ? null : <h4 className="rank">Rank {rank}</h4>}
       </StHomeCoinInfoTitle>
       <StHomeCoinInfoLinks>
-        {COIN_INFO.map(({logo, title}, index) => {
-          return (
-            <StHomeCoinInfoLink key={index}>
-              {logo}
-              <a href="https://i3o.ir" target="_blank" rel="noreferrer">
-                {title}
-                <BsArrowRight />
-              </a>
-            </StHomeCoinInfoLink>
-          );
-        })}
+        {COIN_INFO.map(({logo, title}, index) => (
+          <StHomeCoinInfoLink key={index}>
+            {logo}
+            <a href="https://i3o.ir" target="_blank" rel="noreferrer">
+              {title}
+              <BsArrowRight />
+            </a>
+          </StHomeCoinInfoLink>
+        ))}
       </StHomeCoinInfoLinks>
     </StHomeCoinInfo>
   );

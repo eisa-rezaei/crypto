@@ -32,7 +32,7 @@ export const StCoinInfoDetailNav = styled.nav`
     padding: 20px;
     cursor: pointer;
   }
-  & :nth-child(${(props) => (props.newsPage ? `2` : `1`)}) {
+  & :nth-child(${(props) => props.newsPage}) {
     border-bottom: 2px solid #f8c02d;
   }
   @media (max-width: 750px) {
