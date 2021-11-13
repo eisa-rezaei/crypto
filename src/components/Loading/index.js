@@ -2,9 +2,9 @@ import React from "react";
 import {GoGear} from "react-icons/go";
 import {StLoadingContainer, StLoadingLogoContainer} from "./styles";
 
-const Loading = ({styled}) => {
+const Loading = ({styled, bigChart}) => {
   return (
-    <StLoadingContainer styled={styled}>
+    <StLoadingContainer styled={styled} bigChart={!styled && bigChart}>
       <StLoadingLogoContainer>
         <span>
           <GoGear />

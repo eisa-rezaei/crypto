@@ -167,7 +167,7 @@ const CoinChart = React.memo(
     };
     const size = useSizeChecker();
     if (loading) {
-      return <Loading />;
+      return <Loading bigChart />;
     } else {
       return (
         <StCoinPageChartContainer>

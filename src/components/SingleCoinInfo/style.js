@@ -21,7 +21,7 @@ export const StSingleCoinInfoListItem = styled.li`
   }
 
   @media (max-width: 750px) {
-    height: auto;
+    height: 240px;
     padding: 10px 0px;
     flex-direction: column;
     justify-content: center;

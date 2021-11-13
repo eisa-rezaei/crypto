@@ -40,9 +40,10 @@ export const StLoadingContainer = styled.main`
     font-size: 3rem;
   }
   @media (max-width: 750px) {
-    min-height: ${(props) => (props.styled ? `80vh` : `50vh`)};
-    position: relative;
     padding: 0px;
+    min-height: ${(props) => (props.styled ? `70vh` : `10vh`)};
+    min-height: ${(props) => props.bigChart && `55vh`};
+
     & p {
       font-size: 1.2rem;
     }

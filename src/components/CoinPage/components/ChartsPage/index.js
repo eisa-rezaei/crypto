@@ -110,7 +110,7 @@ const ChartsPage = React.memo(
           )}
         </StCoinDetailChartsHeader>
         <CoinChart
-          id={id?.toString()}
+          id={id}
           limit={days}
           selectedStartDay={new Date(
             `${selectedStartDay?.year}.${selectedStartDay?.month}.${selectedStartDay?.day}`

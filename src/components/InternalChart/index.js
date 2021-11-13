@@ -75,17 +75,17 @@ const InternalChart = ({id, limit}) => {
     ((prices[prices.length - 1] - prices[0]) / prices[prices.length - 1]) * 100;
 
   const chartData = {
-    labels: chartValueDecrease(chartValueDecrease(ChartLabels)),
+    labels: chartValueDecrease(ChartLabels),
     datasets: [
       {
         fill: true,
         backgroundColor:
           percent > 0 ? "rgba(40, 194, 129, 0.2)" : "rgba(138, 30, 33, 0.2)",
-        data: chartValueDecrease(chartValueDecrease(prices)),
+        data: chartValueDecrease(prices),
         borderColor:
           percent > 0 ? "rgba(40, 194, 129, 1)" : "rgba(167, 46, 39, 1)",
         pointBorderWidth: 0,
-        borderWidth: 3,
+        borderWidth: 2,
         tension: 0.1,
         yAxisID: "y",
         xAxisID: "x",
