@@ -29,10 +29,6 @@
           border-top: 2px solid #449944;
           border-bottom: 2px solid #994444;
         }
-        50% {
-          border-top: 4px solid #449944;
-          border-bottom: 4px solid #994444;
-        }
         100% {
           transform: rotate(360deg);
           border-top: 2px solid #449944;
@@ -66,25 +62,10 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
       <div class="pre-content">
-        <span onclick="onDoubleClick()"></span>
+        <span></span>
         <h1>Loading ...</h1>
         <p>Crypto Currency application</p>
       </div>
     </div>
   </body>
-  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-  <script>
-    eruda.init();
-  </script>
-  <script>
-    const onDoubleClick = () => {
-      console.log("clicked");
-      var script = document.createElement("script");
-      script.src = "//cdn.jsdelivr.net/npm/eruda";
-      document.body.appendChild(script);
-      script.onload = function () {
-        eruda.init();
-      };
-    };
-  </script>
 </html>
