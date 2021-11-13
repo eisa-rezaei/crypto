@@ -25,7 +25,7 @@ const Home = () => {
     };
     getData();
   }, [dispatch]);
-  if (true) {
+  if (!state[0]) {
     return <Loading styled />;
   } else {
     return (
