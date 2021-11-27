@@ -1,19 +1,31 @@
-import styled, { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 const rotate = keyframes`
-    from {
+    0% {
         transform: rotate(0deg);
+        color: #fff;
     }
-    to {
+    50% {
         transform: rotate(180deg); 
+        color: #c073c5;
+    }
+    100% {
+        transform: rotate(0);
+        color: #fff;
     }
 `;
 const rotateRevers = keyframes`
-    from {
+    0% {
         transform: rotate(180deg);
+        color: #c073c5;
     }
-    to {
+    50% {
         transform: rotate(0deg); 
+        color: #fff;
+    }
+     100% {
+        transform: rotate(180deg); 
+        color: #c073c5;
     }
 `;
 
@@ -27,9 +39,11 @@ export const StLoadingContainer = styled.main`
   & p {
     font-size: 3rem;
   }
-  @media (max-width: 600px) {
-    min-height: ${(props) => (props.styled ? `80vh` : `auto`)};
-    padding: 0;
+  @media (max-width: 750px) {
+    padding: 0px;
+    min-height: ${(props) => (props.styled ? `70vh` : `10vh`)};
+    min-height: ${(props) => props.bigChart && `55vh`};
+
     & p {
       font-size: 1.2rem;
     }
@@ -40,35 +54,43 @@ export const StLoadingLogoContainer = styled.div`
   width: 150px;
   margin: 60px auto;
   position: relative;
-  font-size: 4rem;
-  & svg:first-child {
-    color: #fff;
-    animation: ${(props) => (props.styled ? rotateRevers : rotate)} 1.5s
-      ease-in-out infinite;
-  }
-  & svg:last-child {
-    color: #c073c5;
-    font-size: 3rem;
-    position: absolute;
-    top: 43px;
-    right: 30px;
-    animation: ${(props) => (props.styled ? rotate : rotateRevers)} 1.5s
-      ease-in-out infinite;
-  }
-  @media (max-width: 700px) {
-    width: 100px;
-    height: 100px;
-    margin: 10px auto;
-    font-size: 2rem;
-    & svg:first-child {
-      top: 25px;
-      right: 20px;
-      font-size: 2rem;
+  & svg {
+    :first-child {
+      font-size: 4rem;
+      top: -40px;
+      right: -10px;
+      color: #fff;
+      position: absolute;
+      animation: ${rotate} 2.5s ease-in-out infinite;
     }
-    & svg:last-child {
-      top: 15px;
-      right: 18px;
+    :last-child {
+      color: #c073c5;
       font-size: 3rem;
+      position: absolute;
+      top: 3px;
+      right: 50px;
+      animation: ${rotateRevers} 2.5s ease-in-out infinite;
+    }
+  }
+
+  @media (max-width: 750px) {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    padding-right: 20px;
+    & svg {
+      :first-child {
+        position: static;
+        font-size: 2.5rem;
+      }
+      :last-child {
+        position: absolute;
+        top: 56%;
+        left: 43%;
+        font-size: 2rem;
+      }
     }
   }
 `;

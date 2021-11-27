@@ -12,11 +12,11 @@ export const StNavBarContainer = styled.nav`
     font-size: 1.1rem;
     letter-spacing: 5px;
   }
-  @media (max-width: 700px) {
-    margin: 10px 0;
-    line-height: 1.5;
+  @media (max-width: 750px) {
+    margin: 10px 20px;
+    line-height: 1;
     & h2 {
-      font-size: 0.65rem;
+      font-size: 0.85rem;
       letter-spacing: 1px;
     }
   }
@@ -28,7 +28,7 @@ export const StNavBarLinks = styled.div`
   & span {
     color: #b58e28;
   }
-  @media (max-width: 700px) {
-    font-size: 0.6rem;
+  @media (max-width: 750px) {
+    font-size: 0.75rem;
   }
 `;

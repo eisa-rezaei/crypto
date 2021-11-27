@@ -12,14 +12,14 @@ export const StCoinContainer = styled.div`
 export const StCoinInfoDetailNewsCharts = styled.article`
   width: 100%;
   min-height: 40vh;
-  padding: 10px 40px;
+  padding: 10px 3vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   background-color: #1e2429;
   border-radius: 20px;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 5px 10px;
   }
 `;
@@ -32,14 +32,14 @@ export const StCoinInfoDetailNav = styled.nav`
     padding: 20px;
     cursor: pointer;
   }
-  & :nth-child(${(props) => (props.newsPage ? `2` : `1`)}) {
+  & :nth-child(${(props) => props.newsPage}) {
     border-bottom: 2px solid #f8c02d;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     border-bottom: 1px solid #181a1d;
     & button {
-      padding: 10px;
-      font-size: 0.5rem;
+      padding: 15px;
+      font-size: 0.8rem;
     }
   }
 `;

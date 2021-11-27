@@ -5,4 +5,7 @@ export const StCoinPageChartContainer = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  & :last-child {
+    margin-left: 20px;
+  }
 `;
