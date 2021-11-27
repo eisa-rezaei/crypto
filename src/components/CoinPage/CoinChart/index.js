@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
-import {Bar, Line} from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
+import { Bar, Line } from "react-chartjs-2";
 import Loading from "../../Loading";
-import {StCoinPageChartContainer} from "./style";
-import {useSizeChecker} from "../../Hook/useSizeChecker";
-import {CoinGeckoClient} from "../../api/coinGecko";
+import { StCoinPageChartContainer } from "./style";
+import { useSizeChecker } from "../../Hook/useSizeChecker";
+import { CoinGeckoClient } from "../../api/coinGecko";
 
 const CoinChart = React.memo(
-  ({id, limit, selectedStartDay, selectedEndDay}) => {
+  ({ id, limit, selectedStartDay, selectedEndDay }) => {
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(false);
 
@@ -65,7 +65,7 @@ const CoinChart = React.memo(
         ChartLabels?.push(timeSelect(data[i][0]));
         ChartValues?.push(data[i][1]);
       }
-      return {ChartValues, ChartLabels};
+      return { ChartValues, ChartLabels };
     };
 
     const chartOptions = {
@@ -111,13 +111,24 @@ const CoinChart = React.memo(
         },
       },
     };
-    const {ChartValues: Volume, ChartLabels} = ChartHelper(data?.total_volumes);
-    const {ChartValues: prices_cap} = ChartHelper(data?.prices);
+    const { ChartValues: Volume, ChartLabels } = ChartHelper(
+      data?.total_volumes
+    );
+    const { ChartValues: prices_cap } = ChartHelper(data?.prices);
 
     const chartValueDecrease = (data) => {
       let newArr = [];
       data.map((item, index) => {
         if (index % 2 === 0) newArr.push(item);
+        return false;
+      });
+      return newArr;
+    };
+
+    const chartValueDecrease2 = (data) => {
+      let newArr = [];
+      data.map((item, index) => {
+        if (index % 4 === 0) newArr.push(item);
         return false;
       });
       return newArr;
@@ -151,12 +162,12 @@ const CoinChart = React.memo(
 
     const chartDataBar = () => {
       const chartData = {
-        labels: ChartLabels,
+        labels: chartValueDecrease2(ChartLabels),
         datasets: [
           {
             yAxisID: "y",
             // xAxisID: "x1",
-            data: Volume,
+            data: chartValueDecrease2(Volume),
             backgroundColor: "#3b464e",
             borderColor: "#3b464e",
           },
