@@ -19,7 +19,7 @@ const CoinInfo = ({ image, name, id, symbol, info, rank }) => {
   return (
     <StHomeCoinInfo>
       <StHomeCoinInfoTitle>
-        <img src={image?.large} alt={name} />
+        <img src={image} alt={name} />
         <span>
           {info ? <h5>{name}</h5> : <Link to={`/coins/${id}`}>{name}</Link>}
           <p>({symbol})</p>

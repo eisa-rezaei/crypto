@@ -9,14 +9,17 @@ import {
   StSingleCoinInfoListItem,
 } from "./style";
 
-const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
-  const current_price = market_data?.current_price;
-  const usdChange24h =
-    market_data?.market_cap_change_percentage_24h_in_currency;
-  const total_volume = market_data?.total_volume;
-  const market_cap = market_data?.market_cap;
-  const market_cap_rank = market_data?.market_cap_rank;
-
+const SingleCoinInfo = ({
+  id,
+  name,
+  symbol,
+  image,
+  market_cap,
+  total_volume,
+  price_change_percentage_24h,
+  current_price,
+  market_cap_rank,
+}) => {
   const size = useSizeChecker();
 
   return (
@@ -29,18 +32,20 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
         rank={market_cap_rank}
       />
       <StSingleCoinInfoDetail>
-        <StSingleCoinInfoDetailPrice isPriceUp={usdChange24h > 0}>
+        <StSingleCoinInfoDetailPrice
+          isPriceUp={price_change_percentage_24h > 0}
+        >
           <StSingleCoinInfoDetailPricePart>
             <h5>Price</h5>
             <span className="price-usd">
               $&nbsp;
-              {current_price?.usd.toLocaleString("en").substring(0, 5)}
+              {current_price?.toLocaleString("en")}
               &nbsp; <h5>USD</h5>
             </span>
             <span className="price">
-              {current_price?.btc.toLocaleString("en")}
+              {current_price?.toLocaleString("en")}
               &nbsp;BTC &nbsp;&nbsp;
-              <p>{usdChange24h?.usd.toFixed(2)}%</p>
+              <p>{price_change_percentage_24h?.toFixed(2)}%</p>
             </span>
           </StSingleCoinInfoDetailPricePart>
           {size ? (
@@ -68,11 +73,11 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
           <StSingleCoinInfoDetailPricePart>
             <h5>Market Cap</h5>
             <span>
-              $&nbsp;{market_cap?.usd.toLocaleString("en")}
+              $&nbsp;{market_cap?.toLocaleString("en")}
               &nbsp;USD
             </span>
             <h5>
-              {market_cap?.btc.toLocaleString("en")}
+              {market_cap?.toLocaleString("en")}
               &nbsp;BTC
             </h5>
           </StSingleCoinInfoDetailPricePart>
@@ -80,11 +85,11 @@ const SingleCoinInfo = ({ id, name, symbol, image, market_data }) => {
             <h5>Volume</h5>
             <span>
               $&nbsp;
-              {total_volume?.usd.toLocaleString("en")}
+              {total_volume?.toLocaleString("en")}
               &nbsp;USD
             </span>
             <h5>
-              {total_volume?.btc.toLocaleString("en")}
+              {total_volume?.toLocaleString("en")}
               &nbsp;BTC
             </h5>
           </StSingleCoinInfoDetailPricePart>
