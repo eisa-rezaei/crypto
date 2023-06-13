@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import React, {Suspense} from "react";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
 import CoinPage from "./components/CoinPage";
@@ -25,3 +25,42 @@ function App() {
 }
 
 export default App;
+
+// import {useEffect, useState, memo, useCallback} from "react";
+
+// const User = memo(({item, handelClick}) => {
+//   useEffect(() => {
+//     console.log("user", item, "rendered");
+//   });
+//   return <div onClick={() => handelClick(item)}>{item}</div>;
+// });
+
+// function App() {
+//   const [list, setList] = useState([]);
+//   const [input, setInput] = useState("");
+//   const handelAddItem = () => {
+//     setList((prev) => [...prev, input]);
+//   };
+
+//   const handelClick = useCallback((item) => {
+//     console.log(item);
+//   }, []);
+
+//   return (
+//     <div className="App">
+//       <input value={input} onChange={(e) => setInput(e.target.value)} />
+//       <button onClick={handelAddItem}> Add Item </button>
+//       <div>
+//         {list.length ? (
+//           list.map((item, index) => (
+//             <User key={index} item={item} handelClick={handelClick} />
+//           ))
+//         ) : (
+//           <h1>no Item in list</h1>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;

@@ -16,11 +16,16 @@ export const StSingleCoinInfoListItem = styled.li`
     box-shadow: 0px 15px 30px rgba(0 0 0 / 44%);
   }
 
-  @media (max-width: 700px) {
-    height: auto;
-    padding: 10px 0;
+  @media (min-width: 750px) and (max-width: 1200px) {
+    padding: 20px 20px;
+  }
+
+  @media (max-width: 750px) {
+    height: 240px;
+    padding: 10px 0px;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
   }
 `;
 
@@ -31,28 +36,46 @@ export const StSingleCoinInfoDetail = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     height: auto;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 export const StSingleCoinInfoDetailPrice = styled.div`
-  width: 100%;
+  width: 700px;
   height: 50%;
-  margin-left: 3vw;
+  margin-left: 0px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 0.8rem;
   & h5 {
     font-size: 0.8rem;
     color: #babbbb;
   }
-  .price-usd {
-    display: flex;
-    align-items: flex-end;
-    font-size: 1.5rem;
+  @media (max-width: 750px) {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-left: 0;
+    font-size: 0.6rem;
+    & h5 {
+      font-size: 0.6rem;
+    }
   }
+  @media (min-width: 750px) and (max-width: 1200px) {
+    width: 600px;
+  }
+`;
+export const StSingleCoinInfoDetailPricePart = styled.div`
+  min-width: 140px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  text-transform: capitalize;
   .price {
     display: flex;
     & p {
@@ -61,23 +84,28 @@ export const StSingleCoinInfoDetailPrice = styled.div`
         props.isPriceUp ? `lightgreen` : `rgba(242, 38, 19, 1)`};
     }
   }
-  @media (max-width: 700px) {
-    height: auto;
+  .price-usd {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 750px) {
+    width: 100%;
+    margin: 10px 0;
+    min-height: 60px;
+    min-width: ${(props) => (props.phoneChart ? `160px` : `100px`)};
+    margin-right: ${(props) => (props.phoneChart ? `0` : `2vw`)};
     justify-content: space-between;
-    margin-left: 0;
-    font-size: 0.6rem;
     .price-usd {
       font-size: 0.8rem;
     }
-    & h5 {
-      font-size: 0.6rem;
-    }
   }
 `;
-export const StSingleCoinInfoDetailPricePart = styled.div`
-  min-width: 130px;
-  min-height: 80px;
-  margin-right: 7vw;
+
+export const StSingleCoinInfoDetailPricePartRank = styled.div`
+  min-width: 100px;
+  min-height: 90px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -89,7 +117,10 @@ export const StSingleCoinInfoDetailPricePart = styled.div`
     border-radius: 20px;
     background-color: #2d5db6;
   }
-  @media (max-width: 700px) {
-    margin-right: 0;
+  @media (max-width: 750px) {
+    width: 100%;
+    margin: 10px 0;
+    min-height: 60px;
+    justify-content: space-between;
   }
 `;

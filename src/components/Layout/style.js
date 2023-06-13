@@ -1,9 +1,9 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 
 export const StLayoutContainer = styled.main`
   width: 100%;
   min-height: 100vh;
-  padding: 50px 100px;
+  padding: 5vh 10vw;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -11,8 +11,12 @@ export const StLayoutContainer = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   background-color: #181a1d;
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 10px;
+    padding-bottom: 30px;
+  }
+  @media (min-width: 750px) and (max-width: 1200px) {
+    padding: 5vh 3vw;
   }
 `;
 
@@ -29,7 +33,8 @@ export const GlobalStyle = createGlobalStyle`
 body {
 	line-height: 1;
     background-color: #1e2429;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Changa", sans-serif;
+
 }
 section {
     display: block;

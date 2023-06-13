@@ -2,16 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/icon.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="This app created by Eisa Rezaei" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="maskable" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Crypto Market</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+          border-top: 2px solid #449944;
+          border-bottom: 2px solid #994444;
+        }
+        100% {
+          transform: rotate(360deg);
+          border-top: 2px solid #449944;
+          border-bottom: 2px solid #994444;
+        }
+      }
+      .pre-content {
+        min-width: 100vw;
+        min-height: 100vh;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #1e2429;
+        font-family: "Changa", sans-serif;
+      }
+      .pre-content span {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        border: 2px solid #484a4d;
+        border-bottom: 2px solid #994444;
+        border-top: 2px solid #449944;
+        animation: rotation infinite 1.5s ease-in-out;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="pre-content">
+        <span></span>
+        <h1>Loading ...</h1>
+        <p>Crypto Currency application</p>
+      </div>
+    </div>
   </body>
 </html>
