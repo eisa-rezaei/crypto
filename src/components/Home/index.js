@@ -1,14 +1,13 @@
-import React, {useEffect,useCallback} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import selectors from "../../redux/coins/selectors";
-import {fetchCoins} from "../../redux/coins/actions";
+import { fetchCoins } from "../../redux/coins/actions";
 import Loading from "../Loading";
 
 import SingleCoinInfo from "../SingleCoinInfo";
-import {CoinGeckoClient} from "../api/coinGecko";
 
-import {StHomeCoinListContainer, StHomeContainer} from "./style";
+import { StHomeCoinListContainer, StHomeContainer } from "./style";
 
 const Home = () => {
   const state = useSelector(selectors.getCoins);
@@ -25,19 +24,8 @@ const Home = () => {
     }
   }, [dispatch]);
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await CoinGeckoClient.coins.all({
-          per_page: 15,
-          localization: false,
-        });
-        dispatch(fetchCoins(res?.data));
-      } catch (error) {
-        return;
-      }
-    };
     getData();
-  }, [dispatch]);
+  }, [getData]);
   if (!state[0]) {
     return <Loading styled />;
   } else {

@@ -44,7 +44,7 @@ const Coin = () => {
     const {market_data} = coin;
     return (
       <StCoinContainer>
-        <SingleCoinInfo {...coin} />
+        <SingleCoinInfo isSingleCoinPage {...coin} />
         <StCoinInfoDetailNewsCharts>
           <StCoinInfoDetailNav newsPage={newsPage ? "2" : "1"}>
             <button type="button" onClick={() => setNewsPage(false)}>

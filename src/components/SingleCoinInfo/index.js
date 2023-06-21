@@ -20,32 +20,47 @@ const SingleCoinInfo = ({
   total_volume,
   price_change_percentage_24h,
   current_price,
+  market_data,
   market_cap_rank,
+  isSingleCoinPage,
 }) => {
   const size = useSizeChecker();
+
+  const imagePic = isSingleCoinPage ? image?.large : image;
+  const isPriceUp = isSingleCoinPage
+    ? market_data?.price_change_percentage_24h > 0
+    : price_change_percentage_24h > 0;
+
+  const market_cap_data_usd = isSingleCoinPage
+    ? market_data?.market_cap.usd
+    : market_cap;
+
+  const market_cap_data_btc = isSingleCoinPage;
+
+  const current_price_data = isSingleCoinPage
+    ? market_data?.current_price.usd
+    : current_price;
 
   return (
     <StSingleCoinInfoListItem>
       <CoinInfo
-        name={name}
-        image={image}
-        symbol={symbol}
         id={id}
+        name={name}
+        image={imagePic}
+        symbol={symbol}
         rank={market_cap_rank}
       />
       <StSingleCoinInfoDetail>
-        <StSingleCoinInfoDetailPrice
-          isPriceUp={price_change_percentage_24h > 0}
-        >
+        <StSingleCoinInfoDetailPrice isPriceUp={isPriceUp}>
           <StSingleCoinInfoDetailPricePart>
             <h5>Price</h5>
             <span className="price-usd">
               $&nbsp;
-              {current_price?.toLocaleString("en")}
+              {current_price_data?.toLocaleString("en")}
               &nbsp; <h5>USD</h5>
             </span>
             <span className="price">
-              {current_price?.toLocaleString("en")}
+              {current_price_data?.toLocaleString("en")}
               &nbsp;BTC &nbsp;&nbsp;
               <p>{price_change_percentage_24h?.toFixed(2)}%</p>
             </span>
@@ -83,11 +98,11 @@ const SingleCoinInfo = ({
           <StSingleCoinInfoDetailPricePart>
             <h5>Market Cap</h5>
             <span>
-              $&nbsp;{market_cap?.toLocaleString("en")}
+              $&nbsp;{market_cap_data_usd?.toLocaleString("en")}
               &nbsp;USD
             </span>
             <h5>
-              {market_cap?.toLocaleString("en")}
+              {market_cap_data_btc?.toLocaleString("en")}
               &nbsp;BTC
             </h5>
           </StSingleCoinInfoDetailPricePart>
