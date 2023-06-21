@@ -1,5 +1,5 @@
 {
-  "name": "newproject",
+  "name": "crypto",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://demo11.i3o.ir",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
+    "build": "react-scripts  --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
