@@ -9,7 +9,7 @@ export const StCoinDetailChartsContainer = styled.section`
   align-items: flex-start;
   justify-content: flex-start;
 
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     padding: 10px 0;
   }
 `;
@@ -22,7 +22,7 @@ export const StCoinDetailChartsHeader = styled.header`
   & h3 {
     font-size: 1.3rem;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     font-size: 0.4rem;
     & h3 {
       font-size: 0.8rem;
@@ -33,7 +33,7 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   display: flex;
   align-items: center;
   & input {
-    width: 15vw;
+    width: 12vw;
     min-height: 45px;
     font-size: 0.9rem;
     text-align: left;
@@ -109,13 +109,21 @@ export const StCoinDetailChartsHeaderInputs = styled.div`
   .Calendar__yearSelectorWrapper::before {
     height: 10px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
     & input {
-      text-align: center;
-      min-height: 25px;
-      font-size: 0.4rem;
-      padding: 0;
+      width: 28vw;
+      min-height: 30px;
       margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+    & label {
+      font-size: 0.8rem;
+      margin: 0 10px;
     }
   }
 `;
@@ -128,21 +136,28 @@ export const StCoinDetailChartsHeaderBtns = styled.div`
   & button {
     color: #3b4851;
     cursor: pointer;
-    padding: 8px 20px;
+    padding: 8px 15px;
     border-radius: 10px;
     transition: all 0.5s;
     :hover {
       color: #fff;
     }
   }
-  @media (max-width: 700px) {
-    width: 100px;
+  @media (min-width: 750px) and (max-width: 1000px) {
+    & button {
+      font-size: 0.65rem;
+      padding: 8px 10px;
+    }
+  }
+  @media (max-width: 750px) {
+    width: 70%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     & button {
       padding: 5px;
-      font-size: 0.5rem;
-      border-radius: 50%;
+      font-size: 0.7rem;
+      align-self: center;
+      justify-self: center;
     }
   }
 `;
@@ -154,6 +169,11 @@ export const StCoinDetailChartsDescription = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media (max-width: 750px) {
+    padding: 0 20px;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 `;
 
 export const StCoinDetailChartsDescriptionDetail = styled.div`
@@ -168,13 +188,14 @@ export const StCoinDetailChartsDescriptionDetail = styled.div`
     color: #aaa;
     font-size: 0.7rem;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
+    width: 100%;
     & h3 {
-      font-size: 0.8rem;
+      font-size: 1.1rem;
     }
     & p {
       margin: 15px 0;
-      font-size: 0.4rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -188,9 +209,14 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
     font-size: 1.3rem;
     margin: 10px 0;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
     & h3 {
-      font-size: 0.9rem;
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 1rem;
       text-align: center;
     }
   }
@@ -198,42 +224,51 @@ export const StCoinDetailChartsDescriptionPrices = styled.ul`
 
 export const StCoinDetailChartsDescriptionPricesItem = styled.li`
   margin-bottom: 20px;
-  & span:nth-child(odd) {
+  & div:nth-child(odd) {
     background-color: #e0e0e008;
     border-radius: 10px;
   }
+`;
+export const StCoinDetailChartsDescriptionPricesItemData = styled.div`
+  width: 100%;
+  min-height: 75px;
+  margin: 10px 0px;
+  padding: 0 20px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & p {
+    margin: 30px 0;
+    color: #aaa;
+  }
   & span {
-    margin: 10px 0px;
-    padding: 0 20px;
-    font-size: 0.7rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+  }
+  .change-price {
+    color: ${(props) => (props.change ? `#0f0` : `#f00`)};
+  }
+
+  @media (max-width: 750px) {
+    min-height: 50px;
+    padding: 0 10px;
+
     & p {
-      margin: 30px 0;
+      margin: 0;
       color: #aaa;
+      font-size: 0.8rem;
     }
     & h5 {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+      font-size: 0.7rem;
     }
-    .change-price {
-      color: ${(props) => (props.change ? `#0f0` : `#f00`)};
-    }
-  }
-  @media (max-width: 700px) {
     & span {
       margin: 10px 0;
       padding: 10px 0;
-      font-size: 0.4rem;
+      font-size: 0.7rem;
       flex-direction: column;
       justify-content: center;
-      & p {
-        margin: 0;
-        margin-bottom: 10px;
-        color: #aaa;
-      }
     }
   }
 `;

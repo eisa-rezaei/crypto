@@ -1,19 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
-import CoinGecko from "coingecko-api";
-import { useParams } from "react-router";
+import React, {useCallback, useEffect, useState} from "react";
+import {useParams} from "react-router";
 import Loading from "../Loading";
 import ChartsPage from "./components/ChartsPage";
 import NewsPage from "./components/NewsPage";
+import {CoinGeckoClient} from "../api/coinGecko";
+import SingleCoinInfo from "../SingleCoinInfo";
 import {
   StCoinContainer,
   StCoinInfoDetailNewsCharts,
   StCoinInfoDetailNav,
 } from "./style";
-import SingleCoinInfo from "../SingleCoinInfo";
 
-const CoinGeckoClient = new CoinGecko();
 const Coin = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(false);
   const [newsPage, setNewsPage] = useState(false);
@@ -21,11 +20,17 @@ const Coin = () => {
   const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await CoinGeckoClient.coins.fetch(id, {});
+      const res = await CoinGeckoClient.coins.fetch(id, {
+        localization: false,
+        tickers: false,
+        developer_data: false,
+        community_data: false,
+        sparkline: false,
+      });
       setCoin(res.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      return;
     }
   }, [id]);
 
@@ -36,12 +41,12 @@ const Coin = () => {
   if (loading) {
     return <Loading styled />;
   } else {
-    const { market_data } = coin;
+    const {market_data} = coin;
     return (
       <StCoinContainer>
         <SingleCoinInfo isSingleCoinPage {...coin} />
         <StCoinInfoDetailNewsCharts>
-          <StCoinInfoDetailNav newsPage={newsPage}>
+          <StCoinInfoDetailNav newsPage={newsPage ? "2" : "1"}>
             <button type="button" onClick={() => setNewsPage(false)}>
               Charts
             </button>
@@ -57,6 +62,7 @@ const Coin = () => {
               id={coin?.id}
               description={coin?.description?.en}
               price={market_data?.current_price?.usd.toLocaleString("en")}
+              priceNum={market_data?.current_price?.usd}
               low={market_data?.high_24h?.usd.toLocaleString("en")}
               high={market_data?.low_24h?.usd.toLocaleString("en")}
               volume={market_data?.total_volume?.usd.toLocaleString("en")}
