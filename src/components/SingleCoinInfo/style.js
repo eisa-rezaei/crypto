@@ -42,7 +42,7 @@ export const StSingleCoinInfoDetailPrice = styled.div`
   margin-left: 3vw;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 0.8rem;
   & h5 {
     font-size: 0.8rem;

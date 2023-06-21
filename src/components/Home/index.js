@@ -31,9 +31,9 @@ const Home = () => {
     return (
       <StHomeContainer>
         <StHomeCoinListContainer>
-          {state.slice(0, 20).map((item) => {
-            return <SingleCoinInfo {...item} />;
-          })}
+          {state.slice(0, 20).map((item) => (
+            <SingleCoinInfo {...item} key={item.id} />
+          ))}
         </StHomeCoinListContainer>
       </StHomeContainer>
     );
